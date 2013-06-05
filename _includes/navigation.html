@@ -1,0 +1,26 @@
+<ul class="nav nav-list">
+    <li><a href="{{ site.baseurl }}/">Home</a></li>
+    {% for section in site.sections %}
+        {% assign attr = section[0] %}
+        {% assign label = section[1] %}
+
+        {% for page in site.categories[attr] %}
+            {% if forloop.first %}
+                <li class=nav-header>{{ label }}</li>
+            {% endif %}
+            {% if page.title %}
+                {% unless page.parent %}
+                    <li data-order="{{ page.order }}"><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>
+                {% endunless %}
+            {% endif %}
+            <!-- Render sub-sections -->
+            {% for subpage in site.categories[attr] %}
+                {% if subpage.title and subpage.parent and subpage.parent == page.title %}
+                    <li data-order="{{ subpage.order }}" class="sub-section"><a href="{{ site.baseurl }}{{ subpage.url }}">{{ subpage.title }}</a></li>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    {% endfor %}
+<!-- List additional links. It is recommended to add a divider
+    e.g. <li class=divider></li> first to break up the content. -->
+</ul>

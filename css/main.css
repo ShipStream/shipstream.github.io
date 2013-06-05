@@ -1,0 +1,104 @@
+body {
+    font-weight: 400;
+    text-shadow: 0 1px 1px rgba(128, 128, 128, 0.4);
+}
+
+pre, code {
+    border: none;
+    border-radius: 0;
+}
+
+pre {
+    font-size: 1em;
+}
+
+code {
+    color: inherit;
+}
+
+h1 { font-size: 38px; margin-top: 1em; }
+h1 code { font-size: 18px; }
+h2 { font-size: 28px; margin-top: 0.75em; }
+h3 { font-size: 22px; }
+h4 { font-size: 16px; }
+h2 code, h3 code { font-size: 70%; }
+
+#header {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+}
+
+#header a:hover {
+    text-decoration: none;
+}
+
+#header small {
+    margin-left: 4em;
+}
+
+#footer {
+    margin: 20px 0;
+    font-size: 0.85em;
+    color: #999;
+    text-align: center;
+}
+
+#content > .page-header:first-child {
+    margin-top: 0;
+}
+
+#content > .page-header:first-child h2 {
+    margin-top: 0;
+}
+
+
+#navigation {
+    font-size: 0.9em;
+}
+
+#navigation li a {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#navigation .nav-header {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Fix highlighting with dark background */
+.highlight pre { background-color: transparent; }
+.highlight pre code { font-size: 1em; color: #ccc; }
+
+
+.api-endpoint-request {
+    padding: 0;
+    border-radius: 1px 1px 0 0;
+}
+.api-endpoint-request pre {
+    background: #526066;
+    color: #fff;
+    margin: 0;
+}
+.api-endpoint-request-type {
+    display: block;
+    float: left;
+    background: #323e42;
+    font-size: 15px;
+    padding: 12px 26px;
+    margin: -12px 24px -12px -12px;
+    color: #fff;
+    border-radius: 1px 0 0 0;
+}
+
+table.table th:nth-child(1) {  
+    width: 250px;
+}
+
+table.shipping-methods th:nth-child(1) {
+    width: 400px;
+}
+
+li.sub-section {
+    padding-left: 10px;
+}
