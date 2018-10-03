@@ -61,11 +61,13 @@ Retrieve warehouses information:
     "result" : [
         {
             "warehouse_id" : 1,
-            "name" : "Warehouse 1"
+            "name" : "Warehouse 1",
+            "is_active" : 1
         },
         {
             "warehouse_id" : 2,
-            "name" : "Warehouse 2"
+            "name" : "Warehouse 2",
+            "is_active" : 1
         }
     ]
 }
@@ -89,6 +91,13 @@ Retrieve warehouses information:
         <td>
             <pre><code>{ "name" : "Warehouse 1" }</code></pre>
             The "Name" property.
+        </td>
+    </tr>
+    <tr>
+        <th>is_active</th>
+        <td>
+            <pre><code>{ "is_active" : 1 }</code></pre>
+            Flag whether warehouse is active.
         </td>
     </tr>
 </tbody>
