@@ -1,7 +1,7 @@
 # Site title and subtitle. This is used in _includes/header.html
 title: 'ShipStream'
 subtitle: 'Get integrated with ShipStream!'
-logo: '/images/logo.jpg'
+logo: '/images/logo.png'
 
 # Enable/show navigation. There are there options:
 #   0 - always hide
