@@ -25,7 +25,8 @@ ShipStream tracks each merchant's inventory at all times using the following sta
  * **Put-Away** - Has been received on an ASN, RMA or Other Delivery that has not yet been committed to the inventory.
    If you have auto-commit enabled this should always be 0.
  * **Available** - Available for new orders. Backordered amounts are not reflected as a negative Available amount but are tracked separately as "Backordered".
- * **Reserved** - Reserved by existing orders and on the shelf waiting to be picked.
+ * **Allocated** - Allocated to existing orders but not yet Reserved.
+ * **Reserved** - Reserved to a specific shelf location and waiting to be picked.
  * **Picked** - Picked from the shelves but not yet shipped.
  * **Backordered** - Reserved by existing orders but not in stock. Will be automatically converted to Reserved when stock is added. Backordered quantities are not reflected in the Available amount as a negative number.
 
@@ -126,6 +127,7 @@ Get all inventory for warehouse "2":
             "qty_processed"   : 0,
             "qty_putaway"     : 50,
             "qty_available"   : 22,
+	    "qty_allocated"   : 5,
             "qty_reserved"    : 16,
             "qty_picked"      : 1,
             "qty_backordered" : 0
@@ -136,6 +138,7 @@ Get all inventory for warehouse "2":
             "qty_processed"   : 0,
             "qty_putaway"     : 0,
             "qty_available"   : 0,
+	    "qty_allocated"   : 0,
             "qty_reserved"    : 2,
             "qty_picked"      : 0,
             "qty_backordered" : 5
@@ -177,6 +180,11 @@ Get all inventory for warehouse "2":
 <td>
 	<pre><code>{ "qty_available" : 1 }</code></pre>
 	The "Available" quantity.
+</td></tr>
+<tr><th>qty_allocated</th>
+<td>
+	<pre><code>{ "qty_allocated" : 1 }</code></pre>
+	The "Allocated" quantity.
 </td></tr>
 <tr><th>qty_reserved</th>
 <td>
