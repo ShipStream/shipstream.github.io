@@ -12,7 +12,7 @@ The following shipping methods are supported by the API where a "shipping_method
 #### FedEx Methods
 
 | Code | Description |
-|:-----:|:-------------|
+|:-----|:-------------|
 | fedex_FEDEX_2_DAY | FedEx 2Day&reg; |
 | fedex_FEDEX_2_DAY_AM | FedEx 2Day&reg; A.M. |
 | fedex_FEDEX_EXPRESS_SAVER | FedEx Express Saver&reg; |
@@ -28,7 +28,7 @@ The following shipping methods are supported by the API where a "shipping_method
 #### UPS Methods
 
 | Code | Description |
-|:-----:|:-------------|
+|:-----|:-------------|
 | ups_01 | UPS Next Day Air |
 | ups_02 | UPS Second Day Air |
 | ups_03 | UPS Ground |
@@ -39,7 +39,7 @@ The following shipping methods are supported by the API where a "shipping_method
 #### USPS Methods (via Stamps.com)
 
 | Code | Description |
-|:-----:|:-------------|
+|:-----|:-------------|
 | usps_US-FC | USPS First-Class |
 | usps_US-FCI | USPS First-Class International |
 | usps_US-PM | USPS Priority Mail |
@@ -56,7 +56,7 @@ The following shipping methods are supported by the API where a "shipping_method
 #### Amazon Merchant Fulfillment
 
 | Code | Description |
-|:-----:|:-------------|
+|:-----|:-------------|
 | amazon_ANY | Amazon Merchant Fulfillment |
 | amazon_Standard | Amazon Standard Delivery |
 | amazon_FreeEconomy | Amazon Free Economy |
@@ -67,6 +67,6 @@ The following shipping methods are supported by the API where a "shipping_method
 #### Other
 
 | Code | Description |
-|:-----:|:-------------|
+|:-----|:-------------|
 | external_ltl | LTL |
 | external_ltl_thirdparty | LTL - Third Party |
