@@ -53,6 +53,17 @@ The following shipping methods are supported by the API where a "shipping_method
 | usps_US-PS | USPS Parcel Select Ground |
 -->
 
+#### Amazon Merchant Fulfillment
+
+| Code | Description |
+|:-----:|:-------------|
+| amazon_ANY | Amazon Merchant Fulfillment |
+| amazon_Standard | Amazon Standard Delivery |
+| amazon_FreeEconomy | Amazon Free Economy |
+| amazon_SecondDay | Amazon Two-Day Delivery |
+| amazon_NextDay | Amazon One-Day Delivery |
+| amazon_Expedited | Amazon Expedited Delivery |
+
 #### Other
 
 | Code | Description |
