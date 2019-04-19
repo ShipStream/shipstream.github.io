@@ -36,8 +36,11 @@ can be specified using additional rows and the order data can be either repeated
 be ignored) or omitted as long as the 'order_ref' column is not omitted since it is used
 to group the order items together.
 
-The order_ref field is required for CSV imports since it is used to group multi-item orders together
-unless there is only one order per file.
+<strong>Note:</strong>  
+To group multi-product orders together for CSV imports either the `unique_id` or the `order_ref` must be supplied unless there is only one order per file.  
+When the `unique_id` is supplied with no `order_ref` then the `unique_id` will be used to group rows.  
+When the `order_ref` is supplied with no `unique_id` then the `order_ref` will be used to group rows.  
+If both `unique_id` and `order_ref` are supplied then the `unique_id` will be used to group rows.
 
 #### Example Input File
 
