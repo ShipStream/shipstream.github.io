@@ -63,14 +63,12 @@ An array of objects. Each object will contain "<a href="#tpb_group_properties">T
         {
             "tpb_group_id" : 73,
             "label" : "TPB Group A",
-            "status" : "active",
-            "warehouse_ids" : null
+            "status" : "active"
         },
         {
             "tpb_group_id" : 74,
             "label" : "TPB Group B",
-            "status" : "pending_approval",
-            "warehouse_ids" : [1]
+            "status" : "pending_approval"
         }
     ]
 }
@@ -103,13 +101,6 @@ An array of objects. Each object will contain "<a href="#tpb_group_properties">T
         <td>
             <pre><code>{ "status" : "active" }</code></pre>
             The status of the group. Possible values: <code>active</code>, <code>inactive</code>, <code>pending_approval</code> 
-        </td>
-    </tr>
-    <tr>
-        <th>warehouse_ids</th>
-        <td>
-            <pre><code>{ "warehouse_ids" : [1, 2] }</code></pre>
-            An array of the assigned warehouse ids, or <code>null</code> for all warehouses.
         </td>
     </tr>
 </tbody>
