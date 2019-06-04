@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Packing"
+title: "Instruction"
 category: ref
 parent: "Order"
 date: 2017-11-10 14:42:47
@@ -9,23 +9,23 @@ order: 17
 
 #### Methods
 
- * [order_packing.create](#order_packing_create)
- * [order_packing.edit](#order_packing_edit)
- * [order_packing.info](#order_packing_info)
- * [order_packing.list](#order_packing_list)
- * [order_packing.delete](#order_packing_delete)
- 
+ * [order_instruction.create](#order_instruction_create)
+ * [order_instruction.edit](#order_instruction_edit)
+ * [order_instruction.info](#order_instruction_info)
+ * [order_instruction.list](#order_instruction_list)
+ * [order_instruction.delete](#order_instruction_delete)
+
 ----
 
-<h1 id="order_packing_create">
-order_packing.create
+<h1 id="order_instruction_create">
+order_instruction.create
 </h1>
 
 ~~~ slim
-order_packing.create (string $orderUniqueId, string $note, object|null $options)
+order_instruction.create (string $orderUniqueId, string $note, object|null $options)
 ~~~
 
-Create a new order packing instruction.
+Create a new order instruction.
 
 #### Parameters
 
@@ -36,12 +36,12 @@ Create a new order packing instruction.
 : Note
 
 2 _object|null_
-: Additional Options (see "[Order Packing](#order_packing_properties)") 
+: Additional Options (see "[Order Instruction](#order_instruction_properties)")
 {:.code-defs.wide}
 
 #### Return Value
- 
-An object with the new [Order Packing](#order_packing_properties). The "file_content" property is not returned. Use [order_packing.info](#order_packing_info) method to retrieve it.
+
+An object with the new [Order Instruction](#order_instruction_properties). The "file_content" property is not returned. Use [order_instruction.info](#order_instruction_info) method to retrieve it.
 
 #### Example Request
 
@@ -52,7 +52,7 @@ An object with the new [Order Packing](#order_packing_properties). The "file_con
     "method" : "call",
     "params" : [
         "be1c13ed4e03f0ed7f1e4053dfff9658",
-        "order_packing.create",
+        "order_instruction.create",
         [
             "100000309",
             "Place Amazon FBA Label in a pouch"
@@ -75,7 +75,7 @@ An object with the new [Order Packing](#order_packing_properties). The "file_con
     "id" : 1234,
     "error" : null,
     "result" : {
-        "packing_id" : 1,
+        "instruction_id" : 1,
         "order_id" : 118,
         "unique_id" : "100000309",
         "note" : "Place Amazon FBA Label in a pouch",
@@ -97,31 +97,31 @@ An object with the new [Order Packing](#order_packing_properties). The "file_con
 
 ----
 
-<h1 id="order_packing_edit">
-order_packing.edit
+<h1 id="order_instruction_edit">
+order_instruction.edit
 </h1>
 
 ~~~ slim
-order_packing.edit (string $packingId, string|null $note, object|null $options)
+order_instruction.edit (string $instructionId, string|null $note, object|null $options)
 ~~~
 
-Modify the order packing instruction.
+Modify the order instruction.
 
 #### Parameters
 
 0 _string|int_
-: Packing ID
+: Instruction ID
 
 1 _string|null_
 : Note
 
 2 _object|null_
-: Additional Options (see "[Order Packing](#order_packing_properties)") 
+: Additional Options (see "[Order Instruction](#order_instruction_properties)")
 {:.code-defs.wide}
 
 #### Return Value
- 
-An object with the updated [Order Packing](#order_packing_properties). The "file_content" property is not returned. Use [order_packing.info](#order_packing_info) method to retrieve it.
+
+An object with the updated [Order Instruction](#order_instruction_properties). The "file_content" property is not returned. Use [order_instruction.info](#order_instruction_info) method to retrieve it.
 
 #### Example Request
 
@@ -132,7 +132,7 @@ An object with the updated [Order Packing](#order_packing_properties). The "file
     "method" : "call",
     "params" : [
         "be1c13ed4e03f0ed7f1e4053dfff9658",
-        "order_packing.edit",
+        "order_instruction.edit",
         [
             123,
             null,
@@ -152,7 +152,7 @@ An object with the updated [Order Packing](#order_packing_properties). The "file
     "id" : 1234,
     "error" : null,
     "result" : {
-        "packing_id" : 1,
+        "instruction_id" : 1,
         "order_id" : 118,
         "unique_id" : "100000309",
         "note" : "Place Amazon FBA Label in a pouch",
@@ -170,31 +170,31 @@ An object with the updated [Order Packing](#order_packing_properties). The "file
 | code | message |
 | ---- | ------- |
 | 100 | Invalid data given. Details in error message. |
-| 101 | Requested order packing does not exist. |
+| 101 | Requested order instruction does not exist. |
 
 ----
 
-<h1 id="order_packing_info">
-order_packing.info
+<h1 id="order_instruction_info">
+order_instruction.info
 </h1>
 
 ~~~ slim
-order_packing.info (string $packingId, array|null $fields = [])
+order_instruction.info (string $instructionId, array|null $fields = [])
 ~~~
 
-Retrieve full order packing information.
+Retrieve full order instruction information.
 
 #### Parameters
 
 0 _string|int_
-: Packing ID
+: Instruction ID
 
 1 _array|null_
 : Fields
 
 #### Return Value
 
-Object which contains [Order Packing](#order_packing_properties) properties. Include "file_content" to the list of the fields to return 
+Object which contains [Order Instruction](#order_instruction_properties) properties. Include "file_content" to the list of the fields to return
 the "file_content" property.
 
 #### Example Request
@@ -206,7 +206,7 @@ the "file_content" property.
     "method" : "call",
     "params" : [
         "be1c13ed4e03f0ed7f1e4053dfff9658",
-        "order_packing.info",
+        "order_instruction.info",
         [
             123,
             {
@@ -225,7 +225,7 @@ the "file_content" property.
     "id" : 1234,
     "error" : null,
     "result" : {
-        "packing_id" : 123,
+        "instruction_id" : 123,
         "order_id" : 118,
         "unique_id" : "100000309",
         "note" : "Place Amazon FBA Label in a pouch",
@@ -244,19 +244,19 @@ the "file_content" property.
 | code | message |
 | ---- | ------- |
 | 100 | Invalid data given. Details in error message. |
-| 101 | Requested order packing does not exist. |
+| 101 | Requested order instruction does not exist. |
 
 ----
 
-<h1 id="order_packing_list">
-order_packing.list
+<h1 id="order_instruction_list">
+order_instruction.list
 </h1>
 
 ~~~ slim
-order_packing.list (string $orderUniqueId, array|null $fields = [])
+order_instruction.list (string $orderUniqueId, array|null $fields = [])
 ~~~
 
-Create a new order packing instruction.
+Create a new order instruction.
 
 #### Parameters
 
@@ -267,8 +267,8 @@ Create a new order packing instruction.
 : Fields
 
 #### Return Value
- 
-An array of objects. Each object will contain [Order Packing](#order_packing_properties) properties. Include "file_content" to the list of the fields to return the "file_content" property.
+
+An array of objects. Each object will contain [Order Instruction](#order_instruction_properties) properties. Include "file_content" to the list of the fields to return the "file_content" property.
 
 #### Example Request
 
@@ -279,7 +279,7 @@ An array of objects. Each object will contain [Order Packing](#order_packing_pro
     "method" : "call",
     "params" : [
         "be1c13ed4e03f0ed7f1e4053dfff9658",
-        "order_packing.list",
+        "order_instruction.list",
         [
             "100000309"
         ]
@@ -296,7 +296,7 @@ An array of objects. Each object will contain [Order Packing](#order_packing_pro
     "error" : null,
     "result" : [
         {
-            "packing_id" : 1,
+            "instruction_id" : 1,
             "order_id" : 118,
             "unique_id" : "100000309",
             "note" : "Place Amazon FBA Label in a pouch",
@@ -320,24 +320,24 @@ An array of objects. Each object will contain [Order Packing](#order_packing_pro
 
 ----
 
-<h1 id="order_packing_delete">
-order_packing.delete
+<h1 id="order_instruction_delete">
+order_instruction.delete
 </h1>
 
 ~~~ slim
-order_packing.delete (string $packingId)
+order_instruction.delete (string $instructionId)
 ~~~
 
-Delete order packing.
+Delete order instruction.
 
 #### Parameters
 
 0 _string|int_
-: Packing ID
+: Instruction ID
 
 #### Return Value
 
-true if the order packing was deleted.
+true if the order instruction was deleted.
 
 #### Example Request
 
@@ -348,7 +348,7 @@ true if the order packing was deleted.
     "method" : "call",
     "params" : [
         "be1c13ed4e03f0ed7f1e4053dfff9658",
-        "order_packing.delete",
+        "order_instruction.delete",
         [
             123
         ]
@@ -366,17 +366,17 @@ true if the order packing was deleted.
     "result" : true
 }
 ```
- 
+
 #### Entity Properties
 
- * [Order Packing](#order_packing_properties)
- 
+ * [Order Instruction](#order_instruction_properties)
+
 ----
 
 ## Entity Properties
 
-<h3 id="order_packing_properties">
-    Order Packing Properties
+<h3 id="order_instruction_properties">
+    Order Instruction Properties
 </h3>
 
 <table class="table-striped">
@@ -385,7 +385,7 @@ true if the order packing was deleted.
         <th>note</th>
         <td>
             <pre><code>{ "note" : "Place Amazon FBA Label in a pouch" }</code></pre>
-            Instructions to the packer. The note is required.
+            Instruction to the packer. The note is required.
         </td>
     </tr>
     <tr>
