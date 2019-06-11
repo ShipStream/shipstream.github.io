@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Third Party Billing Account Group"
+title: "Third Party Billing"
 category: ref
 date: 2019-05-02 15:35:07
 order: 36
@@ -19,7 +19,7 @@ order: 36
 ----
 
 A Third Party Billing Account Group represents a group of third party billing accounts.  Each group can have one account
-per carrier. Groups can be be assigned to an order using `order.options.tpb_group_id`
+per carrier/warehouse combination. Groups can be be assigned to an order using `order.options.tpb_group_id`.
 
 
 <h1 id="tpb_group_list">
@@ -27,7 +27,8 @@ tpb_group.list
 <code>()</code>
 </h1>
 
-Retrieve a list of Third Party Billing Groups.
+Retrieve a list of Third Party Billing Groups. Use the `tpb_group_id` to instruct an order to be shipped on the appropriate
+third party billing account within the group.
 
 #### Parameters
 
