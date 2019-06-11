@@ -1,7 +1,7 @@
 ---
-published: false
+published: true
 layout: page
-title: "Instruction"
+title: "Instructions"
 category: ref
 parent: "Order"
 date: 2017-11-10 14:42:47
@@ -12,7 +12,6 @@ order: 17
 
  * [order_instruction.create](#order_instruction_create)
  * [order_instruction.edit](#order_instruction_edit)
- * [order_instruction.info](#order_instruction_info)
  * [order_instruction.list](#order_instruction_list)
  * [order_instruction.delete](#order_instruction_delete)
 
@@ -42,7 +41,7 @@ Create a new order instruction.
 
 #### Return Value
 
-An object with the new [Order Instruction](#order_instruction_properties). The "file_content" property is not returned. Use [order_instruction.info](#order_instruction_info) method to retrieve it.
+An object with the new [Order Instruction](#order_instruction_properties). The "file_content" property is not returned. Use the [order_instruction.list](#order_instruction_list) method to retrieve it.
 
 #### Example Request
 
@@ -60,7 +59,7 @@ An object with the new [Order Instruction](#order_instruction_properties). The "
             {
                 "file_name" : "amazon_fba_3425232.pdf",
                 "file_content" : "base64 encoded file content",
-                "print_copies" : "one_per_shipment",
+                "presentation" : "once_per_shipment",
                 "print_target" : "LASER"
             },
         ]
@@ -81,7 +80,7 @@ An object with the new [Order Instruction](#order_instruction_properties). The "
         "unique_id" : "100000309",
         "note" : "Place Amazon FBA Label in a pouch",
         "file_name" : "amazon_fba_3425232.pdf",
-        "print_copies" : "one_per_shipment",
+        "presentation" : "once_per_shipment",
         "print_target" : "LASER"
     }
 }
@@ -122,7 +121,7 @@ Modify the order instruction.
 
 #### Return Value
 
-An object with the updated [Order Instruction](#order_instruction_properties). The "file_content" property is not returned. Use [order_instruction.info](#order_instruction_info) method to retrieve it.
+An object with the updated [Order Instruction](#order_instruction_properties). The "file_content" property is not returned.
 
 #### Example Request
 
@@ -138,7 +137,7 @@ An object with the updated [Order Instruction](#order_instruction_properties). T
             123,
             null,
             {
-                "print_copies" : "one_per_order"
+                "presentation" : "once_per_order"
             }
         ]
     ]
@@ -158,81 +157,7 @@ An object with the updated [Order Instruction](#order_instruction_properties). T
         "unique_id" : "100000309",
         "note" : "Place Amazon FBA Label in a pouch",
         "file_name" : "amazon_fba_3425232.pdf",
-        "print_copies" : "one_per_order",
-        "print_target" : "LASER"
-    }
-}
-```
-
-----
-
-#### Error Codes
-
-| code | message |
-| ---- | ------- |
-| 100 | Invalid data given. Details in error message. |
-| 101 | Requested order instruction does not exist. |
-
-----
-
-<h1 id="order_instruction_info">
-order_instruction.info
-</h1>
-
-~~~ slim
-order_instruction.info (string $instructionId, array|null $fields = [])
-~~~
-
-Retrieve full order instruction information.
-
-#### Parameters
-
-0 _string|int_
-: Instruction ID
-
-1 _array|null_
-: Fields
-
-#### Return Value
-
-Object which contains [Order Instruction](#order_instruction_properties) properties. Include "file_content" to the list of the fields to return
-the "file_content" property.
-
-#### Example Request
-
-```json
-{
-    "jsonrpc" : 2.0,
-    "id" : 1234,
-    "method" : "call",
-    "params" : [
-        "be1c13ed4e03f0ed7f1e4053dfff9658",
-        "order_instruction.info",
-        [
-            123,
-            {
-                "fields" : [ "file_content" ]
-            }
-        ]
-    ]
-}
-```
-
-#### Example Response
-
-```json
-{
-    "jsonrpc" : 2.0,
-    "id" : 1234,
-    "error" : null,
-    "result" : {
-        "instruction_id" : 123,
-        "order_id" : 118,
-        "unique_id" : "100000309",
-        "note" : "Place Amazon FBA Label in a pouch",
-        "file_name" : "amazon_fba_3425232.pdf",
-        "file_content" : "base64 encoded file content",
-        "print_copies" : "one_per_order",
+        "presentation" : "once_per_order",
         "print_target" : "LASER"
     }
 }
@@ -302,7 +227,7 @@ An array of objects. Each object will contain [Order Instruction](#order_instruc
             "unique_id" : "100000309",
             "note" : "Place Amazon FBA Label in a pouch",
             "file_name" : "amazon_fba_3425232.pdf",
-            "print_copies" : "one_per_shipment",
+            "presentation" : "once_per_shipment",
             "print_target" : "LASER"
         },
         ...
@@ -404,17 +329,17 @@ true if the order instruction was deleted.
         </td>
     </tr>
     <tr>
-        <th>print_copies</th>
+        <th>presentation</th>
         <td>
-            <pre><code>{ "print_copies" : "one_per_shipment" }</code></pre>
-            The "print_copies" property. Allowed values: "one_per_order", "one_per_shipment", "one_per_package", "none".
+            <pre><code>{ "presentation" : "once_per_shipment" }</code></pre>
+            The "presentation" property. Allowed values: "once_per_order", "once_per_shipment", "once_per_package".
         </td>
     </tr>
     <tr>
         <th>print_target</th>
         <td>
             <pre><code>{ "print_target" : "LASER" }</code></pre>
-            The "print_target" property. Allowed values: "4X6_LABEL", "SMALL_LABEL", "LASER".
+            The "print_target" property. Allowed values: "LABEL", "SMALL_LABEL", "LASER".
         </td>
     </tr>
 </tbody>
