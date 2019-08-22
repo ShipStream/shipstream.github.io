@@ -42,7 +42,7 @@ When the `unique_id` is supplied with no `order_ref` then the `unique_id` will b
 When the `order_ref` is supplied with no `unique_id` then the `order_ref` will be used to group rows.  
 If both `unique_id` and `order_ref` are supplied then the `unique_id` will be used to group rows.
 
-#### Example Input File
+#### Example Input File [\[Download Sample\]](/samples/order_import_sample.csv)
 
 ```
 order_ref,shipping_method,firstname,lastname,company,street1,city,region,postcode,country,phone,sku,qty
@@ -57,7 +57,7 @@ Order - Standard JSON
 
 Importing orders in JSON format should follow the '<a href="/ref/order.html#ordercreate">order.create</a>' inputs exactly.
 
-#### Example Input File
+#### Example Input File [\[Download Sample\]](/samples/order_import_sample.json){:download="order_import_sample.json"}
 
 ```json
 { 
@@ -90,7 +90,7 @@ The header row should contain all field names and each following row contains pr
 
 If a field supports multiple values such as 'hts_country_code' or 'special_other' then multiple values can be assigned by specifying values separated by the 'pipe' character: |
 
-#### Example Input File
+#### Example Input File [\[Download Sample\]](/samples/product_import_sample.csv)
 
 ```
 sku,name,barcode,goods_type,weight,length,width,height,country_of_manufacture,hts_base_code,hts_country_code,requires_packaging,confirmation_per_item,special_box,special_infill,special_tape,special_other,unit_qty
@@ -103,7 +103,7 @@ Product - Standard JSON
 
 Importing products in JSON format should follow the '<a href="/ref/product.html#product_create">product.create</a>' inputs exactly.
 
-#### Example Input File
+#### Example Input File [\[Download Sample\]](/samples/product_import_sample.json){:download="product_import_sample.json"}
 
 ```json
 {
@@ -139,7 +139,7 @@ The "id" field is only used to group multiple lines into a single delivery. If i
 a single delivery it can be blank, but if importing multiple deliveries it should be unique
 for each separate delivery in the CSV file.
 
-#### Example Input File
+#### Example Input File [\[Download Sample\]](/samples/delivery_import_sample.csv)
 
 ```
 id,delivery_type,sender_name,carrier_name,expected_delivery,merchant_ref,sender_ref,sku,qty_expected
@@ -155,7 +155,7 @@ Delivery - Standard JSON
 
 Importing deliveries in JSON format should follow the '<a href="/ref/delivery.html#delivery_create">delivery.create</a>' inputs exactly.
 
-#### Example Input File
+#### Example Input File [\[Download Sample\]](/samples/delivery_import_sample.json){:download="delivery_import_sample.json"}
 
 ```json
 { 

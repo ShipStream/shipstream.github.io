@@ -37,7 +37,7 @@ If you're new to the API but ready to get your hands dirty your first stop shoul
 the [API Basics](/doc/api-basics.html) page.
 
 If you're trying to use our import feature, check out the
-[Import Formats](/doc/import-fomrats.html) page for details about the various import formats
+[Import Formats](/doc/import-formats.html) page for details about the various import formats
 supported (like CSV and JSON) and how to use them.
 
 In general, the in-depth details of the API methods are listed in their respective sections

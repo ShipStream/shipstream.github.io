@@ -1,0 +1,21 @@
+{
+  "name" : "Product 3",
+  "barcode" : "product3",
+  "goods_type" : "NORMAL",
+  "weight" : 1.75,
+  "length" : 123,
+  "width" : 100,
+  "height" : 28,
+  "country_of_manufacture" : "DK",
+  "hts_base_code" : 1234.56,
+  "hts_country_code" : "BH:1000|ZW:1001",
+  "requires_packaging" : 1,
+  "confirmation_per_item" : 0,
+  "special_box" : "specialboxsku",
+  "special_infill" : "specialinfillsku",
+  "special_tape" : "specialtapesku",
+  "special_other" : "specialothersku1|specialothersku2"
+  "unit_qty" : 5,
+  "additional_regulatory_info" : "EX1995120111C",
+  "meets_hazmat_specs" : 1
+}

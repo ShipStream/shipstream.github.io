@@ -1,0 +1,18 @@
+{
+  "delivery_type" : "asn",
+  "sender_name" : "Bill Gates",
+  "carrier_name" : "FedEx",
+  "expected_delivery" : "2014-07-31",
+  "merchant_ref" : "12345",
+  "sender_ref" : "333",
+  "items" : [
+    {
+      "sku" : "product1",
+      "qty_expected" : 5
+    },
+    {
+      "sku" : "product2",
+      "qty_expected" : 1
+    }
+  ]
+}
