@@ -51,14 +51,6 @@ The following shipping methods are supported by the API where a "shipping_method
 | usps_US-PS | USPS Parcel Select Ground |
 | usps_US-XM | USPS Priority Mail Express |
 
-<!--
-| usps_US-XM | USPS Priority Mail Express |
-| usps_US-EMI | USPS Priority Mail Express International |
-| usps_US-LM | USPS Library Mail |
-| usps_US-MM | USPS Media Mail |
-| usps_US-PS | USPS Parcel Select Ground |
--->
-
 #### Amazon Merchant Fulfillment
 
 | Code | Description |
@@ -76,7 +68,7 @@ The following shipping methods are supported by the API where a "shipping_method
 |:-----|:-------------|
 | cheapest_ALL | Cheapest method overall |
 | cheapest_GROUND | Cheapest ground shipping method |
-| cheapest_POSTAL | Cheapest USPS shipping method |
+| cheapest_POSTAL | Cheapest USPS or USPS last-mile shipping method |
 | cheapest_THREE_DAY | Cheapest 3-day shipping method |
 | cheapest_TWO_DAY | Cheapest 2-day shippng method |
 | cheapest_OVERNIGHT | Cheapest overnight shipping method |
