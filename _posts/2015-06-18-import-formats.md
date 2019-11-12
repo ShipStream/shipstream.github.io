@@ -45,7 +45,7 @@ If both `unique_id` and `order_ref` are supplied then the `unique_id` will be us
 #### Example Input File [\[Download Sample\]](/samples/order_import_sample.csv)
 
 ```
-order_ref,shipping_method,firstname,lastname,company,street1,city,region,postcode,country,phone,sku,qty
+order_ref,shipping_method,firstname,lastname,company,street1,city,region,postcode,country,telephone,sku,qty
 123456,ups_01,Bill,Gates,Microsoft,11 Times Square,New York,NY,10036,US,212.245.2100,product1,5
 123456,,,,,,,,,,,,product2,1
 123456,,,,,,,,,,,,product3,2
@@ -71,7 +71,7 @@ Importing orders in JSON format should follow the '<a href="/ref/order.html#orde
   "region" : "NY", 
   "postcode" : "10036", 
   "country" : "US", 
-  "phone" : "212.245.2100", 
+  "telephone" : "212.245.2100", 
   "items" : { 
     "product1" : 2, 
     "product2" : 3, 
@@ -242,7 +242,7 @@ filter {
           "region"   => event["region"],
           "postcode" => event["postcode"],
           "country"  => event["country"],
-          "phone"    => event["phone"]
+          "telephone"    => event["telephone"]
         },
         "info" => {
           "unique_id"           => event["unique_id"],
