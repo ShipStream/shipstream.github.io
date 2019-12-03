@@ -203,4 +203,13 @@ Get all inventory for warehouse "2":
 	for single-warehouse requests since backordered amounts are not
 	apportioned to specific warehouses.
 </td></tr>
+<tr><th>qty_advertised</th>
+<td>
+	<pre><code>{ "qty_advertised" : 1 }</code></pre>
+	The "Advertised" quantity. This is the "Available" quantity plus
+	the virtual BOM quantity.  The virtual BOM quantity is controlled by
+	a product's "Virtual Inventory" attribute.  This quantity will not 
+	be present for single-warehouse requests since virtual amounts 
+	are not apportioned to specific warehouses.
+</td></tr>
 </table>
