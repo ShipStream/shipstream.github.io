@@ -93,8 +93,8 @@ If a field supports multiple values such as 'hts_country_code' or 'special_other
 #### Example Input File [\[Download Sample\]](/samples/product_import_sample.csv)
 
 ```
-sku,name,barcode,goods_type,weight,length,width,height,country_of_manufacture,hts_base_code,hts_country_code,requires_packaging,confirmation_per_item,special_box,special_infill,special_tape,special_other,unit_qty
-"productsku","Product Name","productbarcode","NORMAL","1.75","123","100","28","DK","1234.56","BH:1000|ZW:1001",1,0,"specialboxsku","specialinfillsku","specialtapesku","specialothersku1|specialothersku2",5
+sku,name,barcode,goods_type,weight,length,width,height,country_of_manufacture,hts_base_code,hts_country_code,requires_packaging,confirmation_per_item,valid_containers,special_supplies,special_other,unit_qty
+"productsku","Product Name","productbarcode","NORMAL","1.75","123","100","28","DK","1234.56","BH:1000|ZW:1001",1,0,"containerssku1|containerssku2","suppliessku1|suppliessku2","othersku1|othersku2",5
 ```
 
 <h2 id="product_standard_json">
@@ -119,10 +119,9 @@ Importing products in JSON format should follow the '<a href="/ref/product.html#
   "hts_country_code" : "BH:1000|ZW:1001",
   "requires_packaging" : 1,
   "confirmation_per_item" : 0,
-  "special_box" : "specialboxsku",
-  "special_infill" : "specialinfillsku",
-  "special_tape" : "specialtapesku",
-  "special_other" : "specialothersku1|specialothersku2"
+  "valid_containers" : "containersku1|containersku2",
+  "special_supplies" : "suppliessku1|suppliessku2",
+  "special_other" : "othersku1|othersku2",
   "unit_qty" : 5,
   "additional_regulatory_info" : "EX1995120111C",
   "meets_hazmat_specs" : 1
