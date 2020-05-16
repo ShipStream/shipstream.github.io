@@ -137,7 +137,14 @@ Delivery - Standard CSV
 
 The "id" field is only used to group multiple lines into a single delivery. If importing
 a single delivery it can be blank, but if importing multiple deliveries it should be unique
-for each separate delivery in the CSV file.
+for each separate delivery in the CSV file.  
+
+When using Delivery Imports the `merchant_ref` values must be unique to the `delivery_type` specified.  i.e.: Merchant Ref supplied to three new ASNs should not match former ASNs already in the system, nor the ASNs within the upload file.
+
+Since an import can create multiple items at once the System uses the Merchant Ref to check for duplicates.  
+ Example: Upload a file with 10 different ASNs.  After importing, the System states that of the ten, five had errors and five successfully imported.  Correct those five, whether that is in the file or by adding a SKU to the System, etc.  With the corrections made, import the same file but have the System handle duplicates by Dropping them.  This way the same file can be reused without accidentally entering a duplicate ASN.  Allowing the focus to be on fixing the ASNs that failed instead of needing to also make a new file to import the ASNs.
+ 
+ There are other possable column headers that can be found at <a href="https://docs.redstagfulfillment.com/ref/delivery.html#delivery_properties">Delivery Properties</a>.  Some of these can be used, some are only for values returned by the API.
 
 #### Example Input File [\[Download Sample\]](/samples/delivery_import_sample.csv)
 
