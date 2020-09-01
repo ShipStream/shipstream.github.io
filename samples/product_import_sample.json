@@ -10,6 +10,7 @@
   "hts_base_code" : 1234.56,
   "hts_country_code" : "BH:1000|ZW:1001",
   "requires_packaging" : 1,
+  "can_contain_other_items" : 0,
   "confirmation_per_item" : 0,
   "valid_containers" : "containersku1|containersku2",
   "special_supplies" : "suppliessku1|suppliessku2",
