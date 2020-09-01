@@ -120,10 +120,9 @@ Importing products in JSON format should follow the '<a href="/ref/product.html#
   "requires_packaging" : 1,
   "can_contain_other_items" : 0,
   "confirmation_per_item" : 0,
-  "special_box" : "specialboxsku",
-  "special_infill" : "specialinfillsku",
-  "special_tape" : "specialtapesku",
-  "special_other" : "specialothersku1|specialothersku2"
+  "valid_containers" : "containersku1|containersku2",
+  "special_supplies" : "suppliessku1|suppliessku2",
+  "special_other" : "othersku1|othersku2",
   "unit_qty" : 5,
   "additional_regulatory_info" : "EX1995120111C",
   "meets_hazmat_specs" : 1
