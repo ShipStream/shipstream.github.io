@@ -12,6 +12,11 @@ method of authenticating and calling methods. Each method is documented in detai
 There are only two actual JSONRPC methods: `login` and `call`. The `login` procedure returns a session ID which
 is then passed to subsequent requests to `call`. The `call` procedure takes the API method name and other request parameters.
 
+### Authentication
+
+You can either retrieve a session ID using the `login` method to be used for subsequent requests to `call`, or use HTTP
+Basic Auth to pass the login parameters to `call` and use `null` for the first parameter (no session ID).
+
 ### Request Format
 
 All requests must be POST requests with the request parameters given as a JSON-encoded string in the POST body.
