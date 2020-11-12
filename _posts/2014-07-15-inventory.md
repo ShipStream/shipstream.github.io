@@ -8,8 +8,8 @@ order: 10
 
 #### Methods
 
- * [inventory.list](#inventory_list)
- * [inventory.lots](#inventory_lots)
+ * [inventory.list](#inventorylist)
+ * [inventory.lots](#inventorylots)
 
 ----
 
