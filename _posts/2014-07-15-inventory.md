@@ -9,12 +9,14 @@ order: 10
 #### Methods
 
  * [inventory.list](#inventory_list)
+ * [inventory.lots](#inventory_lots)
 
 ----
 
 #### Entity Properties
 
  * [Inventory Item](#inventory_item)
+ * [Inventory Lot](#lot_properties)
 
 ----
 
@@ -147,6 +149,109 @@ Get all inventory for warehouse "2":
 }
 ```
 
+inventory.lots
+==============
+
+~~~ slim
+inventory.lots (null|object $filters, array $options = [])
+~~~
+
+Retrieve list of lots by filters.
+
+#### Parameters
+
+0 _null|object_
+: Filters to apply for the search.
+
+  * _null_ - Retrieve list of all orders.
+  * _object_ - Retrieve list of orders using specified "[Search Filters](/doc/search-filters.html)".
+
+1 _null|object_
+: Options to apply for the search.
+
+  * _null_ - No options will be applied.
+  * _object_ - Apply specified "[Search Options](/doc/search-options.html)".
+
+#### Return Value
+
+An array of objects. Each object will contain 
+"<a href="#lot_properties">Lot Properties</a>".
+
+#### Example Request
+
+```json
+{
+    "jsonrpc" : 2.0,
+    "id" : 1234,
+    "method" : "call",
+    "params" : [
+        "be1c13ed4e03f0ed7f1e4053dfff9658",
+        "inventory.lots",
+        [
+            {
+                "lot_id" : {
+                    "in" : [1, 2]
+                }
+            },
+            []
+        ]
+    ]
+}
+```
+
+#### Example Response
+
+```json
+{
+    "jsonrpc" : 2.0,
+    "id" : 1234,
+    "result" : {
+       "results": [
+           {
+               "lot_id": "1",
+               "lot_number": "2018-07-09",
+               "origination_date": "2018-07-09",
+               "expiration_date": "2019-04-07",
+               "is_active": "1",
+               "group_value": "2018-07-09",
+               "created_at": "2018-07-09T19:58:23+00:00",
+               "sku": "product1",
+               "name": "product 1",
+               "locations": [
+                   "location 1"
+               ],
+               "qty_putaway": "0.0000",
+               "qty_available": "76.0000",
+               "qty_reserved": "0.0000"
+           },
+           {
+               "lot_id": "2",
+               "lot_number": "2018-07-09",
+               "origination_date": "2018-07-09",
+               "expiration_date": "2019-04-11",
+               "is_active": "1",
+               "group_value": "2018-07-09",
+               "created_at": "2018-07-09T19:59:03+00:00",
+               "sku": "product2",
+               "name": "product 2",
+               "locations": [],
+               "qty_putaway": "0.0000",
+               "qty_available": "0.0000",
+               "qty_reserved": "0.0000"
+           }
+       ],
+       "totalCount": 2,
+       "numPages": 1
+   }
+}
+```
+
+#### Error Codes
+
+| code | message |
+| ---- | ------- |
+| 102 | Unexpected error applying filters. |
+
 ## Entity Properties
 
 <h3 id="inventory_item">
@@ -212,4 +317,104 @@ Get all inventory for warehouse "2":
 	be present for single-warehouse requests since virtual amounts 
 	are not apportioned to specific warehouses.
 </td></tr>
+</table>
+
+<h3 id="lot_properties">
+    Lot Properties
+</h3>
+
+<table class="table-striped">
+<tbody>
+    <tr>
+        <th>lot_id</th>
+        <td>
+            <pre><code>{ "lot_id": 25 }</code></pre>
+            The internal lot ID.
+        </td>
+    </tr>
+    <tr>
+        <th>is_active</th>
+        <td>
+            <pre><code>{ "is_active": 1 }</code></pre>
+            Flag whether lot is active.
+        </td>
+    </tr>
+    <tr>
+        <th>sku</th>
+        <td>
+            <pre><code>{ "sku": "product1" }</code></pre>
+            The "SKU" property.
+        </td>
+    </tr>
+    <tr>
+        <th>name</th>
+        <td>
+            <pre><code>{ "name": "product 1" }</code></pre>
+            The "Name" property.
+        </td>
+    </tr>
+    <tr>
+        <th>lot_number</th>
+        <td>
+            <pre><code>{ "lot_number": "AB190405ZZ9Z" }</code></pre>
+            The "Lot Number" property.
+        </td>
+    </tr>
+    <tr>
+        <th>expiration_date</th>
+        <td>
+            <pre><code>{ "expiration_date": "2019-04-07" }</code></pre>
+            The "Expiration Date" property.
+        </td>
+    </tr>
+    <tr>
+        <th>origination_date</th>
+        <td>
+            <pre><code>{ "origination_date": "2018-07-09" }</code></pre>
+            The "Origination Date" property.
+        </td>
+    </tr>
+    <tr>
+        <th>group_value</th>
+        <td>
+            <pre><code>{ "group_value": "2018-07-09" }</code></pre>
+            The "Group Value" property.
+        </td>
+    </tr>
+    <tr>
+        <th>created_at</th>
+        <td>
+            <pre><code>{ "created_at": "2018-07-09T18:51:34+00:00" }</code></pre>
+            The "Created At" property in ISO 8601 format.
+        </td>
+    </tr>
+    <tr>
+        <th>locations</th>
+        <td>
+            <pre><code>{ "locations": ["location A", "location B"] }</code></pre>
+            A list of locations.
+        </td>
+    </tr>
+    <tr>
+        <th>qty_putaway</th>
+        <td>
+            <pre><code>{ "qty_putaway": "1.0000" }</code></pre>
+            The "Put-Away" quantity.
+        </td>
+    </tr>
+    <tr>
+        <th>qty_available</th>
+        <td>
+            <pre><code>{ "qty_available": "55.0000" }</code></pre>
+            The "Available" quantity.
+        </td>
+    </tr>
+    <tr>
+        <th>qty_reserved</th>
+        <td>
+            <pre><code>{ "qty_reserved": "1.0000" }</code></pre>
+            The "Reserved" quantity.
+        </td>
+    </tr>
+</tbody>
 </table>
