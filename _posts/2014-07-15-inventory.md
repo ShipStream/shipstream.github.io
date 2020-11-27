@@ -10,6 +10,7 @@ order: 10
 
  * [inventory.list](#inventorylist)
  * [inventory.lots](#inventorylots)
+ * [inventory.details](#inventorydetails)
 
 ----
 
@@ -129,7 +130,7 @@ Get all inventory for warehouse "2":
             "qty_processed"   : 0,
             "qty_putaway"     : 50,
             "qty_available"   : 22,
-	    "qty_allocated"   : 5,
+            "qty_allocated"   : 5,
             "qty_reserved"    : 16,
             "qty_picked"      : 1,
             "qty_backordered" : 0
@@ -140,7 +141,7 @@ Get all inventory for warehouse "2":
             "qty_processed"   : 0,
             "qty_putaway"     : 0,
             "qty_available"   : 0,
-	    "qty_allocated"   : 0,
+            "qty_allocated"   : 0,
             "qty_reserved"    : 2,
             "qty_picked"      : 0,
             "qty_backordered" : 5
@@ -243,6 +244,154 @@ An array of objects. Each object will contain
        "totalCount": 2,
        "numPages": 1
    }
+}
+```
+
+#### Error Codes
+
+| code | message |
+| ---- | ------- |
+| 102 | Unexpected error applying filters. |
+
+inventory.details
+==============
+
+~~~ slim
+inventory.details (string|array|null $skus, string|null $updatedSince)
+~~~
+
+Get global and per-warehouse inventory levels for one or more products by SKU.
+
+#### Parameters
+
+0 _string|array|null_
+: SKUs. If not specified then inventory for all SKUs will be returned.
+  - string - Get inventory for a single product by SKU.
+  - array - Get inventory for the specified products by SKU.
+  - null - Get inventory for all products.
+  
+1 _string|null_
+: Updated Since.
+{:.code-defs.wide}
+
+#### Return Value
+
+An array of detailed items inventory, or an empty array if there were no matching SKUs.
+
+#### Example Request
+
+```json
+{
+    "jsonrpc" : 2.0,
+    "id" : 1234,
+    "method" : "call",
+    "params" : [
+        "be1c13ed4e03f0ed7f1e4053dfff9658",
+        "inventory.detailed",
+        [
+            ["BlueWidget-1","BlueWidget-5"],
+            "2014-07-24T18:51:18+00:00"
+        ]
+    ]
+}
+```
+
+#### Example Response
+
+```json
+{
+    "jsonrpc" : 2.0,
+    "id" : 1234,
+    "result" : [
+        {
+            "sku": "BlueWidget-1",
+            "qty_expected": "0.0000",
+            "qty_processed": "0.0000",
+            "qty_putaway": "0.0000",
+            "qty_available": "8.0000",
+            "qty_allocated": "0.0000",
+            "qty_reserved": "0.0000",
+            "qty_picked": "2.0000",
+            "qty_backordered": "0.0000",
+            "qty_advertised": "8",
+            "detailed": [
+                {
+                    "warehouse_id": "1",
+                    "qty_expected": "0.0000",
+                    "qty_processed": "0.0000",
+                    "qty_putaway": "0.0000",
+                    "qty_available": "8.0000",
+                    "qty_allocated": "0.0000",
+                    "qty_reserved": "0.0000",
+                    "qty_picked": "2.0000"
+                },
+                {
+                    "warehouse_id": "2",
+                    "qty_expected": "0.0000",
+                    "qty_processed": "0.0000",
+                    "qty_putaway": "0.0000",
+                    "qty_available": "0.0000",
+                    "qty_allocated": "0.0000",
+                    "qty_reserved": "0.0000",
+                    "qty_picked": "0.0000"
+                },
+                {
+                    "warehouse_id": "3",
+                    "qty_expected": "0.0000",
+                    "qty_processed": "0.0000",
+                    "qty_putaway": "0.0000",
+                    "qty_available": "0.0000",
+                    "qty_allocated": "0.0000",
+                    "qty_reserved": "0.0000",
+                    "qty_picked": "0.0000"
+                }
+            ]
+        },
+        {
+            "sku": "BlueWidget-5",
+            "qty_expected": "0.0000",
+            "qty_processed": "0.0000",
+            "qty_putaway": "0.0000",
+            "qty_available": "98.0000",
+            "qty_allocated": "0.0000",
+            "qty_reserved": "0.0000",
+            "qty_picked": "1.0000",
+            "qty_backordered": "0.0000",
+            "qty_advertised": "98",
+            "detailed": [
+                {
+                    "warehouse_id": "1",
+                    "qty_expected": "0.0000",
+                    "qty_processed": "0.0000",
+                    "qty_putaway": "0.0000",
+                    "qty_available": "98.0000",
+                    "qty_allocated": "0.0000",
+                    "qty_reserved": "0.0000",
+                    "qty_picked": "1.0000"
+                },
+                {
+                    "warehouse_id": "2",
+                    "qty_expected": "0.0000",
+                    "qty_processed": "0.0000",
+                    "qty_putaway": "0.0000",
+                    "qty_available": "0.0000",
+                    "qty_allocated": "0.0000",
+                    "qty_reserved": "0.0000",
+                    "qty_picked": "0.0000"
+                },
+                {
+                    "warehouse_id": "3",
+                    "qty_expected": "0.0000",
+                    "qty_processed": "0.0000",
+                    "qty_putaway": "0.0000",
+                    "qty_available": "0.0000",
+                    "qty_allocated": "0.0000",
+                    "qty_reserved": "0.0000",
+                    "qty_picked": "0.0000"
+                }
+            ]
+        }
+    ]
 }
 ```
 
