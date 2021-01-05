@@ -63,7 +63,7 @@ will be returned, otherwise the inventory levels for the specified warehouse wil
 : Warehouse. If not specified, returned values represent sums of all warehouses.
 
 2 _string|null_
-: Updated Since.
+: Return only SKUs updated since the time specified in the format '2008-07-01T22:38:07+00:00'.
 {:.code-defs.wide}
 
 #### Return Value
@@ -277,7 +277,7 @@ Get global and per-warehouse inventory levels for one or more products by SKU.
   - null - Get inventory for all products.
   
 1 _string|null_
-: Updated Since.
+: Return only SKUs updated since the time specified in the format '2008-07-01T22:38:07+00:00'.
 {:.code-defs.wide}
 
 #### Return Value
