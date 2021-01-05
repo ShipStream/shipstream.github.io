@@ -10,7 +10,7 @@ order: 10
 
  * [inventory.list](#inventorylist)
  * [inventory.lots](#inventorylots)
- * [inventory.details](#inventorydetails)
+ * [inventory.detailed](#inventorydetailed)
 
 ----
 
@@ -259,11 +259,11 @@ An array of objects. Each object will contain
 | ---- | ------- |
 | 102 | Unexpected error applying filters. |
 
-inventory.details
+inventory.detailed
 ==============
 
 ~~~ slim
-inventory.details (string|array|null $skus, string|null $updatedSince)
+inventory.detailed (string|array|null $skus, string|null $updatedSince)
 ~~~
 
 Get global and per-warehouse inventory levels for one or more products by SKU.
