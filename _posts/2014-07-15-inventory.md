@@ -43,7 +43,7 @@ inventory.list
 ==============
 
 ~~~ slim
-inventory.list (string|array|null $skus, int|null $warehouseId)
+inventory.list (string|array|null $skus, int|null $warehouseId, string|null $updatedSince)
 ~~~
 
 Get inventory levels for one or more products by SKU. If a warehouse is not specified the sum of all warehouse inventories
@@ -60,6 +60,9 @@ will be returned, otherwise the inventory levels for the specified warehouse wil
   
 1 _int|null_
 : Warehouse. If not specified, returned values represent sums of all warehouses.
+
+2 _string|null_
+: Updated Since.
 {:.code-defs.wide}
 
 #### Return Value
