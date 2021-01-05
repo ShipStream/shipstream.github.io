@@ -10,7 +10,7 @@ order: 10
 
  * [inventory.list](#inventorylist)
  * [inventory.lots](#inventorylots)
- * [inventory.details](#inventorydetails)
+ * [inventory.detailed](#inventorydetailed)
 
 ----
 
@@ -32,6 +32,7 @@ ShipStream tracks each merchant's inventory at all times using the following sta
  * **Reserved** - Reserved to a specific shelf location and waiting to be picked.
  * **Picked** - Picked from the shelves but not yet shipped.
  * **Backordered** - Reserved by existing orders but not in stock. Will be automatically converted to Reserved when stock is added. Backordered quantities are not reflected in the Available amount as a negative number.
+ * **Advertised** - The "Available" quantity plus the virtual BOM quantity.  The virtual BOM quantity is controlled by a product's "Virtual Inventory" attribute.
 
 Additionally, products have two flags that can be set which will affect whether or not they are retrieved in an inventory request.
 
@@ -43,7 +44,7 @@ inventory.list
 ==============
 
 ~~~ slim
-inventory.list (string|array|null $skus, int|null $warehouseId)
+inventory.list (string|array|null $skus, int|null $warehouseId, string|null $updatedSince)
 ~~~
 
 Get inventory levels for one or more products by SKU. If a warehouse is not specified the sum of all warehouse inventories
@@ -60,6 +61,9 @@ will be returned, otherwise the inventory levels for the specified warehouse wil
   
 1 _int|null_
 : Warehouse. If not specified, returned values represent sums of all warehouses.
+
+2 _string|null_
+: Updated Since.
 {:.code-defs.wide}
 
 #### Return Value
@@ -133,7 +137,8 @@ Get all inventory for warehouse "2":
             "qty_allocated"   : 5,
             "qty_reserved"    : 16,
             "qty_picked"      : 1,
-            "qty_backordered" : 0
+            "qty_backordered" : 0,
+            "qty_advertised"  : 22
         },
         {
             "sku" : "BlueWidget-5",
@@ -144,7 +149,8 @@ Get all inventory for warehouse "2":
             "qty_allocated"   : 0,
             "qty_reserved"    : 2,
             "qty_picked"      : 0,
-            "qty_backordered" : 5
+            "qty_backordered" : 5,
+            "qty_advertised"  : 0
         }
     ]
 }
@@ -253,11 +259,11 @@ An array of objects. Each object will contain
 | ---- | ------- |
 | 102 | Unexpected error applying filters. |
 
-inventory.details
+inventory.detailed
 ==============
 
 ~~~ slim
-inventory.details (string|array|null $skus, string|null $updatedSince)
+inventory.detailed (string|array|null $skus, string|null $updatedSince)
 ~~~
 
 Get global and per-warehouse inventory levels for one or more products by SKU.
@@ -323,7 +329,8 @@ An array of detailed items inventory, or an empty array if there were no matchin
                     "qty_available": "8.0000",
                     "qty_allocated": "0.0000",
                     "qty_reserved": "0.0000",
-                    "qty_picked": "2.0000"
+                    "qty_picked": "2.0000",
+                    "qty_advertised": "8"
                 },
                 {
                     "warehouse_id": "2",
@@ -333,7 +340,8 @@ An array of detailed items inventory, or an empty array if there were no matchin
                     "qty_available": "0.0000",
                     "qty_allocated": "0.0000",
                     "qty_reserved": "0.0000",
-                    "qty_picked": "0.0000"
+                    "qty_picked": "0.0000",
+                    "qty_advertised": "0"
                 },
                 {
                     "warehouse_id": "3",
@@ -343,7 +351,8 @@ An array of detailed items inventory, or an empty array if there were no matchin
                     "qty_available": "0.0000",
                     "qty_allocated": "0.0000",
                     "qty_reserved": "0.0000",
-                    "qty_picked": "0.0000"
+                    "qty_picked": "0.0000",
+                    "qty_advertised": "0"
                 }
             ]
         },
@@ -367,7 +376,8 @@ An array of detailed items inventory, or an empty array if there were no matchin
                     "qty_available": "98.0000",
                     "qty_allocated": "0.0000",
                     "qty_reserved": "0.0000",
-                    "qty_picked": "1.0000"
+                    "qty_picked": "1.0000",
+                    "qty_advertised": "98"
                 },
                 {
                     "warehouse_id": "2",
@@ -377,7 +387,8 @@ An array of detailed items inventory, or an empty array if there were no matchin
                     "qty_available": "0.0000",
                     "qty_allocated": "0.0000",
                     "qty_reserved": "0.0000",
-                    "qty_picked": "0.0000"
+                    "qty_picked": "0.0000",
+                    "qty_advertised": "0"
                 },
                 {
                     "warehouse_id": "3",
@@ -387,7 +398,8 @@ An array of detailed items inventory, or an empty array if there were no matchin
                     "qty_available": "0.0000",
                     "qty_allocated": "0.0000",
                     "qty_reserved": "0.0000",
-                    "qty_picked": "0.0000"
+                    "qty_picked": "0.0000",
+                    "qty_advertised": "0"
                 }
             ]
         }
@@ -462,9 +474,7 @@ An array of detailed items inventory, or an empty array if there were no matchin
 	<pre><code>{ "qty_advertised" : 1 }</code></pre>
 	The "Advertised" quantity. This is the "Available" quantity plus
 	the virtual BOM quantity.  The virtual BOM quantity is controlled by
-	a product's "Virtual Inventory" attribute.  This quantity will not 
-	be present for single-warehouse requests since virtual amounts 
-	are not apportioned to specific warehouses.
+	a product's "Virtual Inventory" attribute.
 </td></tr>
 </table>
 
