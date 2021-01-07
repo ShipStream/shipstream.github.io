@@ -108,6 +108,7 @@ Importing products in JSON format should follow the '<a href="/ref/product.html#
 ```json
 {
   "name" : "Product 3",
+  "sku" : "product-3",
   "barcode" : "product3",
   "goods_type" : "NORMAL",
   "weight" : 1.75,
