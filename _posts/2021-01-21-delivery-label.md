@@ -90,7 +90,7 @@ An object with <a href="#delivery_label_properties">Delivery Label Properties</a
             "delivery_id": "26",
             "warehouse_id": "1",
             "status": "valid",
-            "carrier": "ups",
+            "shipping_method": "ups_03",
             "created_at": "2021-01-20T10:03:55+00:00",
             "updated_at": "2021-01-20T10:04:01+00:00",
             "packages": [
@@ -165,7 +165,7 @@ An object with <a href="#delivery_label_properties">Delivery Label Properties</a
             "delivery_id": "26",
             "warehouse_id": "1",
             "status": "valid",
-            "carrier": "ups",
+            "shipping_method": "ups_03",
             "created_at": "2021-01-20T10:04:23+00:00",
             "updated_at": "2021-01-20T10:04:26+00:00",
             "packages": [
@@ -328,7 +328,7 @@ An array of objects. Each object will contain "<a href="#delivery_label_properti
                 "delivery_id": "22",
                 "warehouse_id": "1",
                 "status": "valid",
-                "carrier": "ups",
+                "shipping_method": "ups_03",
                 "created_at": "2021-01-18T13:57:25+00:00",
                 "updated_at": "2021-01-18T13:57:29+00:00",
                 "packages": [
@@ -413,6 +413,194 @@ An array of objects. Each object will contain "<a href="#delivery_label_properti
 | ---- | ------- |
 | 101 | Invalid filters given. Details in error message. |
 
+---
+
+<h1 id="delivery_label_create">
+delivery_label.create
+<code>(string $incrementId, object $address, object $packages, object $options)</code>
+</h1>
+
+Create a new delivery label.
+
+#### Parameters
+
+<table class="table">
+<thead><tr><th>order</th><th>description</th></tr></thead>
+<tbody>
+    <tr>
+        <td>0</td>
+        <td>Delivery internal id</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Destination Address. See <a href="#delivery_label_address_properties">Delivery Label Address Properties</a>.</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Array of delivery label packages. See <a href="#delivery_label_package_properties">Delivery Label Package Properties</a>.</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Options. See <a href="#delivery_label_options">Delivery Label Options</a>.</td>
+    </tr>
+</tbody>
+</table>
+
+#### Return Value
+
+An object with <a href="#delivery_label_properties">Delivery Label Properties</a>.
+
+#### Example Request
+
+```json
+{
+    "jsonrpc":2.0,
+    "id":1234,
+    "method":"call",
+    "params":[
+        "12e6f7398eb7a992219477aaa771725d",
+        "delivery_label.create",
+        [
+            "11000022",
+            {
+                "firstname" : "Bill",
+                "lastname" : "Gates",
+                "company" : "Microsoft",
+                "street" : "11 Times Square",
+                "city" : "New York",
+                "region" : "NY",
+                "postcode" : "10036",
+                "country" : "US",
+                "telephone" : "212.245.2100"
+            },
+            [
+                {
+                    "weight": "45.000",
+                    "weight_units": "POUND",
+                    "dimensions": {
+                        "length": "10.000",
+                        "width": "11.000",
+                        "height": "12.000"
+                    },
+                    "dimension_units": "INCH",
+                    "package_items": [
+                        {
+                            "sku": "O-VS-Oregano-p3",
+                            "quantity": "10.000"
+                        },
+                        {
+                            "sku": "O-VS-Mint-p2",
+                            "quantity": "10.000"
+                        },
+                        {
+                            "sku": "VS-Bags-p1",
+                            "quantity": "10.000"
+                        }
+                    ]
+                }
+            ],
+            {
+                "shipping_method":"ups_03",
+                "return_service_type":"print_or_download"
+            }
+        ]
+    ]
+}
+```
+
+#### Example Response
+
+```json
+{
+    "jsonrpc" : 2.0,
+    "id" : 1234,
+    "error" : null,
+    "result": [
+        {
+            "label_id": "10",
+            "delivery_id": "27",
+            "warehouse_id": "1",
+            "status": "valid",
+            "shipping_method": "ups_03",
+            "created_at": "2021-01-22T13:45:17+00:00",
+            "updated_at": "2021-01-22T13:45:28+00:00",
+            "packages": [
+                {
+                    "warehouse_id": "1",
+                    "label_id": "10",
+                    "carrier": "ups",
+                    "weight": 45,
+                    "weight_units": "POUND",
+                    "dimensions": {
+                        "length": 10,
+                        "width": 11,
+                        "height": 12
+                    },
+                    "dimension_units": "INCH",
+                    "tracking": [
+                        {
+                            "number": "1Z49R7V89013598741",
+                            "description": "UPS Ground"
+                        }
+                    ],
+                    "package_items": [
+                        {
+                            "delivery_item_id": "81",
+                            "sku": "O-VS-Oregano-p3",
+                            "quantity": 10
+                        },
+                        {
+                            "delivery_item_id": "82",
+                            "sku": "O-VS-Mint-p2",
+                            "quantity": 10
+                        },
+                        {
+                            "delivery_item_id": "83",
+                            "sku": "VS-Bags-p1",
+                            "quantity": 10
+                        }
+                    ]
+                }
+            ],
+            "destination_address": {
+                "firstname": "Sherlock",
+                "lastname": "Marquez",
+                "telephone": "865-971-4663",
+                "street": "4616 Crossroads Park Dr",
+                "city": "Liverpool",
+                "postcode": "13088",
+                "classification": "com",
+                "region": "New York",
+                "country": "US"
+            },
+            "origin_address": {
+                "firstname": "Bill",
+                "lastname": "Gates",
+                "company": "Microsoft",
+                "street": "11 Times Square",
+                "city": "New York",
+                "region": "New York",
+                "postcode": "10036",
+                "telephone": "212.245.2100",
+                "email": null,
+                "classification": null,
+                "is_valid": null,
+                "country": "US"
+            }
+        }
+    ]
+}
+```
+
+----
+
+#### Error Codes
+
+| code | message |
+| ---- | ------- |
+| 100 | Requested delivery does not exist. |
+| 102 | Invalid data given. Details in error message. |
+
 
 <h3 id="delivery_label_properties">
     Delivery Label Properties
@@ -449,10 +637,10 @@ An array of objects. Each object will contain "<a href="#delivery_label_properti
         </td>
     </tr>
     <tr>
-        <th>carrier</th>
+        <th>shipping_method</th>
         <td>
-            <pre><code>{ "carrier" : "ups" }</code></pre>
-            Carrier code.
+            <pre><code>{ "shipping_method" : "ups_03" }</code></pre>
+            See the <a href="/doc/shipping-methods.html">Shipping Methods</a> document for a reference. Is not optional.
         </td>
     </tr>
     <tr>
@@ -472,19 +660,19 @@ An array of objects. Each object will contain "<a href="#delivery_label_properti
     <tr>
         <th>packages</th>
         <td>
-            Array of delivery label packages. See "<a href="#delivery_label_package_properties">Delivery Label Package Properties</a>".
+            Array of delivery label packages. See <a href="#delivery_label_package_properties">Delivery Label Package Properties</a>.
         </td>
     </tr>
     <tr>
         <th>destination_address</th>
         <td>
-            Destination Address. See "<a href="#delivery_label_address_properties">Delivery Label Address Properties</a>".
+            Destination Address. See <a href="#delivery_label_address_properties">Delivery Label Address Properties</a>.
         </td>
     </tr>
     <tr>
         <th>origin_address</th>
         <td>
-            Origination Address. See "<a href="#delivery_label_address_properties">Delivery Label Address Properties</a>".
+            Origination Address. See <a href="#delivery_label_address_properties">Delivery Label Address Properties</a>.
         </td>
     </tr>
 </tbody>
@@ -680,6 +868,43 @@ An array of objects. Each object will contain "<a href="#delivery_label_properti
     <td>
         <pre><code>{ "email" : "customer@example.com" }</code></pre>
         The "Email" property.
+    </td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="delivery_label_options">
+    Delivery Label Options
+</h3>
+
+<table class="table-striped">
+<tbody>
+<tr>
+    <th>shipping_method</th>
+    <td>
+        <pre><code>{ "shipping_method" : "ups_03" }</code></pre>
+        See the <a href="/doc/shipping-methods.html">Shipping Methods</a> document for a reference. Is not optional.
+    </td>
+</tr>
+<tr>
+    <th>return_service_type</th>
+    <td>
+        <pre><code>{ "return_service_type" : "print_or_download" }</code></pre>
+        The "Return Service Type" property. Allowed: "print_or_download", "email_label".
+    </td>
+</tr>
+<tr>
+    <th>saturday_pickup</th>
+    <td>
+        <pre><code>{ "saturday_pickup" : 1 }</code></pre>
+        The "Saturday Pickup" property.
+    </td>
+</tr>
+<tr>
+    <th>tpb_group_id</th>
+    <td>
+        <pre><code>{ "tpb_group_id" : 11 }</code></pre>
+        The ID number of a <a href="/ref/third-party-billing-group.html">Third Party Billing Account Group</a>. If unset or <code>null</code>, and a default group is configured, the default group will be used.  Set to <code>0</code> to disable third party billing.
     </td>
 </tr>
 </tbody>
