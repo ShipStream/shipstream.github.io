@@ -159,81 +159,6 @@ An object with <a href="#delivery_label_properties">Delivery Label Properties</a
                 "is_valid": null,
                 "country": "US"
             }
-        },
-        {
-            "label_id": "9",
-            "delivery_id": "26",
-            "warehouse_id": "1",
-            "status": "valid",
-            "shipping_method": "ups_03",
-            "created_at": "2021-01-20T10:04:23+00:00",
-            "updated_at": "2021-01-20T10:04:26+00:00",
-            "packages": [
-                {
-                    "warehouse_id": "1",
-                    "label_id": "9",
-                    "carrier": "ups",
-                    "weight": "27.000",
-                    "weight_units": "POUND",
-                    "dimensions": {
-                        "length": "10.000",
-                        "width": "11.000",
-                        "height": "12.000"
-                    },
-                    "dimension_units": "INCH",
-                    "tracking": [
-                        {
-                            "number": "1Z49R7V89021837511",
-                            "description": "UPS Ground"
-                        }
-                    ],
-                    "package_items": [
-                        {
-                            "delivery_item_id": 2,
-                            "sku": "O-VS-Oregano-p3",
-                            "quantity": "6.000"
-                        },
-                        {
-                            "delivery_item_id": 3,
-                            "sku": "O-VS-Mint-p2",
-                            "quantity": "6.000"
-                        },
-                        {
-                            "delivery_item_id": 5,
-                            "sku": "VS-Bags-p1",
-                            "quantity": "6.000"
-                        }
-                    ]
-                }
-            ],
-            "destination_address": {
-                "region": "New York",
-                "postcode": "13088",
-                "lastname": "Marquez",
-                "street": "4616 Crossroads Park Dr",
-                "city": "Liverpool",
-                "email": null,
-                "telephone": "865-971-4663",
-                "firstname": "Sherlock",
-                "company": null,
-                "classification": "com",
-                "is_valid": null,
-                "country": "US"
-            },
-            "origin_address": {
-                "region": "New York",
-                "postcode": "10036",
-                "lastname": "Gates",
-                "street": "11 Times Square",
-                "city": "New York",
-                "email": null,
-                "telephone": "212.245.2100",
-                "firstname": "Bill",
-                "company": "Microsoft",
-                "classification": null,
-                "is_valid": null,
-                "country": "US"
-            }
         }
     ]
 }
@@ -600,6 +525,66 @@ An object with <a href="#delivery_label_properties">Delivery Label Properties</a
 | ---- | ------- |
 | 100 | Requested delivery does not exist. |
 | 102 | Invalid data given. Details in error message. |
+
+---
+
+<h1 id="delivery_label_void">
+delivery_label.void
+<code>(int $labelId)</code>
+</h1>
+
+Void delivery label.
+
+#### Parameters
+
+<table class="table">
+<thead><tr><th>order</th><th>description</th></tr></thead>
+<tbody>
+    <tr>
+        <td>0</td>
+        <td>Delivery label internal id</td>
+    </tr>
+</tbody>
+</table>
+
+#### Return Value
+
+<code>true</code> if the Delivery Label was voided.
+
+#### Example Request
+
+```json
+{
+    "jsonrpc" : 2.0,
+    "id" : 1234,
+    "method" : "call",
+    "params" : [
+        "12e6f7398eb7a992219477aaa771725d",
+        "delivery_label.void",
+        [
+            "8"
+        ]
+    ]
+}
+```
+
+#### Example Response
+
+```json
+{
+    "jsonrpc" : 2.0,
+    "id" : 1234,
+    "result": true
+}
+```
+
+----
+
+#### Error Codes
+
+| code | message |
+| ---- | ------- |
+| 103 | Cannot void the delivery label. Details in error message. |
 
 
 <h3 id="delivery_label_properties">
