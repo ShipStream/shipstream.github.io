@@ -342,7 +342,7 @@ An array of objects. Each object will contain "<a href="#delivery_label_properti
 
 <h1 id="delivery_label_create">
 delivery_label.create
-<code>(string $incrementId, object $address, object $packages, object $options)</code>
+<code>(string $incrementId, object $address, array $packages, object $options)</code>
 </h1>
 
 Create a new delivery label.
