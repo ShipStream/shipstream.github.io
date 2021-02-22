@@ -23,7 +23,7 @@ order: 10
 
 ShipStream tracks each merchant's inventory at all times using the following statuses:
 
- * **Unreceived** - Listed on open ASNs, RMAs and Other Deliveries that have not yet been received.
+ * **Expected** - Listed on open ASNs, RMAs and Other Deliveries that have not yet been received.
  * **Processed** - Counted on an ASN, RMA or Other Delivery but not yet put-away.
  * **Put-Away** - Has been received on an ASN, RMA or Other Delivery that has not yet been committed to the inventory.
    If you have auto-commit enabled this should always be 0.
@@ -130,7 +130,7 @@ Get all inventory for warehouse "2":
     "result" : [
         {
             "sku" : "BlueWidget-1",
-            "qty_unreceived"  : 0,
+            "qty_expected"    : 0,
             "qty_processed"   : 0,
             "qty_putaway"     : 50,
             "qty_available"   : 22,
@@ -142,7 +142,7 @@ Get all inventory for warehouse "2":
         },
         {
             "sku" : "BlueWidget-5",
-            "qty_unreceived"  : 40,
+            "qty_expected"    : 40,
             "qty_processed"   : 0,
             "qty_putaway"     : 0,
             "qty_available"   : 0,
@@ -311,7 +311,7 @@ An array of detailed items inventory, or an empty array if there were no matchin
     "result" : [
         {
             "sku": "BlueWidget-1",
-            "qty_unreceived": "0.0000",
+            "qty_expected": "0.0000",
             "qty_processed": "0.0000",
             "qty_putaway": "0.0000",
             "qty_available": "8.0000",
@@ -323,7 +323,7 @@ An array of detailed items inventory, or an empty array if there were no matchin
             "detailed": [
                 {
                     "warehouse_id": "1",
-                    "qty_unreceived": "0.0000",
+                    "qty_expected": "0.0000",
                     "qty_processed": "0.0000",
                     "qty_putaway": "0.0000",
                     "qty_available": "8.0000",
@@ -334,7 +334,7 @@ An array of detailed items inventory, or an empty array if there were no matchin
                 },
                 {
                     "warehouse_id": "2",
-                    "qty_unreceived": "0.0000",
+                    "qty_expected": "0.0000",
                     "qty_processed": "0.0000",
                     "qty_putaway": "0.0000",
                     "qty_available": "0.0000",
@@ -345,7 +345,7 @@ An array of detailed items inventory, or an empty array if there were no matchin
                 },
                 {
                     "warehouse_id": "3",
-                    "qty_unreceived": "0.0000",
+                    "qty_expected": "0.0000",
                     "qty_processed": "0.0000",
                     "qty_putaway": "0.0000",
                     "qty_available": "0.0000",
@@ -358,7 +358,7 @@ An array of detailed items inventory, or an empty array if there were no matchin
         },
         {
             "sku": "BlueWidget-5",
-            "qty_unreceived": "0.0000",
+            "qty_expected": "0.0000",
             "qty_processed": "0.0000",
             "qty_putaway": "0.0000",
             "qty_available": "98.0000",
@@ -370,7 +370,7 @@ An array of detailed items inventory, or an empty array if there were no matchin
             "detailed": [
                 {
                     "warehouse_id": "1",
-                    "qty_unreceived": "0.0000",
+                    "qty_expected": "0.0000",
                     "qty_processed": "0.0000",
                     "qty_putaway": "0.0000",
                     "qty_available": "98.0000",
@@ -381,7 +381,7 @@ An array of detailed items inventory, or an empty array if there were no matchin
                 },
                 {
                     "warehouse_id": "2",
-                    "qty_unreceived": "0.0000",
+                    "qty_expected": "0.0000",
                     "qty_processed": "0.0000",
                     "qty_putaway": "0.0000",
                     "qty_available": "0.0000",
@@ -392,7 +392,7 @@ An array of detailed items inventory, or an empty array if there were no matchin
                 },
                 {
                     "warehouse_id": "3",
-                    "qty_unreceived": "0.0000",
+                    "qty_expected": "0.0000",
                     "qty_processed": "0.0000",
                     "qty_putaway": "0.0000",
                     "qty_available": "0.0000",
@@ -430,12 +430,7 @@ An array of detailed items inventory, or an empty array if there were no matchin
 <tr><th>qty_expected</th>
 <td>
 	<pre><code>{ "qty_expected" : 1 }</code></pre>
-	An alias for <code>qty_unreceived</code>. Deprecated.
-</td></tr>
-<tr><th>qty_unreceived</th>
-<td>
-	<pre><code>{ "qty_unreceived" : 1 }</code></pre>
-	The quantity that is expected to be received in the future.
+	The "Expected" quantity.
 </td></tr>
 <tr><th>qty_processed</th>
 <td>
