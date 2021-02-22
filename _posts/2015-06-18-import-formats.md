@@ -150,7 +150,7 @@ Since an import can create multiple items at once the System uses the Merchant R
 #### Example Input File [\[Download Sample\]](/samples/delivery_import_sample.csv)
 
 ```
-id,delivery_type,sender_name,carrier_name,expected_delivery,merchant_ref,sender_ref,sku,qty_expected
+id,delivery_type,sender_name,carrier_name,expected_delivery,merchant_ref,sender_ref,sku,qty
 1,asn,Bill Gates,FedEx,"2014-07-31",12345,333,product1,50
 1,,,,,,,product2,100
 2,asn,Bill Gates,FedEx,"2014-08-12",12346,339,product3,40
@@ -176,11 +176,11 @@ Importing deliveries in JSON format should follow the '<a href="/ref/delivery.ht
   "items" : [ 
     { 
       "sku" : "product1", 
-      "qty_expected" : 5
+      "qty" : 5
     }, 
     { 
       "sku" : "product2", 
-      "qty_expected" : 1 
+      "qty" : 1 
     } 
   ] 
 }
