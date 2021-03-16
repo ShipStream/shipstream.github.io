@@ -8,11 +8,11 @@
   "items" : [
     {
       "sku" : "product1",
-      "qty_expected" : 5
+      "qty" : 5
     },
     {
       "sku" : "product2",
-      "qty_expected" : 1
+      "qty" : 1
     }
   ]
 }
