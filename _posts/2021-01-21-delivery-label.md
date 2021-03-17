@@ -831,7 +831,7 @@ Void delivery label.
     <th>classification</th>
     <td>
         <pre><code>{ "classification" : "com" }</code></pre>
-        The "Classification" property. Allowed: "res" - residential, "com" - commercial, "unk" - unknown.
+        The "Classification" property. Allowed: "res" - residential, "com" - commercial, "po" - post office, "mil" - military, "unk" - unknown.
     </td>
 </tr>
 <tr>
