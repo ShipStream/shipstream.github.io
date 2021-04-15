@@ -25,7 +25,7 @@ put an order on hold).
 You can also subscribe to "[Webhooks](/ref/webhook.html)" and have our system push information
 (like inventory updates and tracking numbers) directly to yours in real-time!
 
-Lastly, we have a [Middleware](/doc/middleware.html) system that let's you develop plugins that can
+Lastly, we have a [Middleware](https://github.com/ShipStream/middleware) system that let's you develop plugins that can
 either be integrated directly into our system or run on a standalone environment that makes your plugin
 operate like a first-class citizen in our environment complete with internal event notifications and the
 ability to handle third-party webhooks!
