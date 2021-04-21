@@ -7,25 +7,33 @@ date: 2014-07-29 12:12:51
 order: 130
 ---
 
-The following shipping methods are supported by the API where a "shipping_method" parameter is used.
+The following shipping methods are supported by the API where a "shipping_method" parameter is used. Some services may
+not be available on your account or in your area but all services are listed for completeness.
 
-#### FedEx Methods
+#### FedEx Services
 
 | Code | Description |
 |:-----|:-------------|
-| fedex_FEDEX_2_DAY | FedEx 2Day&reg; |
-| fedex_FEDEX_2_DAY_AM | FedEx 2Day&reg; A.M. |
-| fedex_FEDEX_EXPRESS_SAVER | FedEx Express Saver&reg; |
-| fedex_FEDEX_GROUND | FedEx Ground&reg; |
-| fedex_INTERNATIONAL_ECONOMY | FedEx International Economy&reg; |
-| fedex_INTERNATIONAL_PRIORITY | FedEx International Priority&reg; |
 | fedex_FIRST_OVERNIGHT | FedEx First Overnight&reg; |
-| fedex_GROUND_HOME_DELIVERY | FedEx Home Delivery&reg; |
 | fedex_PRIORITY_OVERNIGHT | FedEx Priority Overnight&reg; |
 | fedex_STANDARD_OVERNIGHT | FedEx Standard Overnight&reg; |
+| fedex_FEDEX_2_DAY_AM | FedEx 2Day&reg; A.M. |
+| fedex_FEDEX_2_DAY | FedEx 2Day&reg; |
+| fedex_FEDEX_EXPRESS_SAVER | FedEx Express Saver&reg; |
+| fedex_FEDEX_GROUND | FedEx Ground&reg; |
+| fedex_GROUND_HOME_DELIVERY | FedEx Home Delivery&reg; |
 | fedex_SMART_POST | FedEx SmartPost&reg; |
+| fedex_INTERNATIONAL_FIRST | FedEx International First&reg; |
+| fedex_INTERNATIONAL_PRIORITY | FedEx International Priority&reg; |
+| fedex_INTERNATIONAL_ECONOMY | FedEx International Economy&reg; |
+| fedex_INTERNATIONAL_GROUND | FedEx International Ground&reg; |
 
-#### UPS Methods
+<!--
+| fedex_SAME_DAY | FedEx SameDay&reg; |
+| fedex_SAME_DAY_CITY | FedEx SameDay&reg; City |
+-->
+
+#### UPS Services
 
 | Code | Description |
 |:-----|:-------------|
@@ -61,6 +69,14 @@ The following shipping methods are supported by the API where a "shipping_method
 | amazon_SecondDay | Amazon Two-Day Delivery |
 | amazon_NextDay | Amazon One-Day Delivery |
 | amazon_Expedited | Amazon Expedited Delivery |
+
+#### OnTrac Services
+
+| Code | Description |
+|:-----|:-------------|
+| ontrac_S | OnTrac Sunrise |
+| ontrac_C | OnTrac Ground |
+| ontrac_DC | OnTrac Same Day |
 
 #### "Cheapest" Methods
 
