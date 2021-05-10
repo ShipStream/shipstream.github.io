@@ -37,7 +37,7 @@ Search options are optional and can be used for safe paging.
   <th>limit</th>
   <td>
   	<pre><code>{ "limit" : 100 }</code></pre>
-  	The "Limit" numeric option. Default: 50.
+  	The "Limit" numeric option. Default: 50. Max value: 100.
   </td>	
 </tr>
 </table>
