@@ -25,7 +25,7 @@ specified for a create or update operation then the default unit will be used.
 |:-----|:-------------|
 | in | Inches |
 | cm | Centimeters |
-| mm | Meters |
+| mm | Millimeters |
 
 #### Volume
 
@@ -33,7 +33,7 @@ specified for a create or update operation then the default unit will be used.
 |:-----|:-------------|
 | in^3 | Cubic inches (in³) |
 | cm^3 | Cubic centimeters (cm³) |
-| mm^3 | Cubic meters (mm³) |
+| mm^3 | Cubic millimeters (mm³) |
 
 #### Dimensional Divisor
 
@@ -43,5 +43,5 @@ specified for a create or update operation then the default unit will be used.
 | in^3/oz | Cubic inches per ounce (in³/oz) |
 | cm^3/kg | Cubic centimeters per kilogram (cm³/kg) |
 | cm^3/g | Cubic centimeters per gram (cm³/g) |
-| mm^3/kg | Cubic centimeters per kilogram (mm³/kg) |
-| mm^3/g | Cubic centimeters per gram (mm³/g) |
+| mm^3/kg | Cubic millimeters per kilogram (mm³/kg) |
+| mm^3/g | Cubic millimeters per gram (mm³/g) |
