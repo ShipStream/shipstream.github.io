@@ -99,13 +99,13 @@ An object with <a href="#delivery_label_properties">Delivery Label Properties</a
                     "label_id": "8",
                     "carrier": "ups",
                     "weight": "18.000",
-                    "weight_unit": "lb",
+                    "weight_units": "POUND",
                     "dimensions": {
                         "length": "10.000",
                         "width": "11.000",
                         "height": "12.000"
                     },
-                    "dimension_unit": "in",
+                    "dimension_units": "INCH",
                     "tracking": [
                         {
                             "number": "1Z49R7V89024431506",
@@ -262,13 +262,13 @@ An array of objects. Each object will contain "<a href="#delivery_label_properti
                         "label_id": "2",
                         "carrier": "ups",
                         "weight": "45.000",
-                        "weight_unit": "lb",
+                        "weight_units": "POUND",
                         "dimensions": {
                             "length": "10.000",
                             "width": "11.000",
                             "height": "12.000"
                         },
-                        "dimension_unit": "in",
+                        "dimension_units": "INCH",
                         "tracking": [
                             {
                                 "number": "1Z49R7V89024877071",
@@ -401,13 +401,13 @@ An object with <a href="#delivery_label_properties">Delivery Label Properties</a
             [
                 {
                     "weight": "45.000",
-                    "weight_unit": "lb",
+                    "weight_units": "POUND",
                     "dimensions": {
                         "length": "10.000",
                         "width": "11.000",
                         "height": "12.000"
                     },
-                    "dimension_unit": "in",
+                    "dimension_units": "INCH",
                     "package_items": [
                         {
                             "sku": "O-VS-Oregano-p3",
@@ -455,13 +455,13 @@ An object with <a href="#delivery_label_properties">Delivery Label Properties</a
                     "label_id": "10",
                     "carrier": "ups",
                     "weight": 45,
-                    "weight_unit": "lb",
+                    "weight_units": "POUND",
                     "dimensions": {
                         "length": 10,
                         "width": 11,
                         "height": 12
                     },
-                    "dimension_unit": "in",
+                    "dimension_units": "INCH",
                     "tracking": [
                         {
                             "number": "1Z49R7V89013598741",
@@ -698,9 +698,9 @@ Void delivery label.
         </td>
     </tr>
     <tr>
-    <th>weight_unit</th>
+    <th>weight_units</th>
         <td>
-            <pre><code>{ "weight_unit" : "lb" }</code></pre>
+            <pre><code>{ "weight_units" : "POUND" }</code></pre>
             The unit of measure used for weight. Allowed: <a href="/doc/units-of-measure.html#weight" title="Weight Units">Weight Units</a>.
         </td>
     </tr>
@@ -718,9 +718,9 @@ Void delivery label.
         </td>
     </tr>
     <tr>
-        <th>dimension_unit</th>
+        <th>dimension_units</th>
         <td>
-            <pre><code>{ "dimension_unit" : "in" }</code></pre>
+            <pre><code>{ "dimension_units" : "INCH" }</code></pre>
             The unit of measure used for dimensional measurement. <a href="/doc/units-of-measure.html#length" title="Length Units">Length Units</a>.
         </td>
     </tr>

@@ -7,25 +7,25 @@ date: 2021-05-20 15:26:51
 order: 140
 ---
 
-The following units of measure are supported by the API for any property with a "_unit" suffix. If a unit is not 
+The following units of measure are supported by the API for any property with a "_units" suffix. If a unit is not 
 specified for a create or update operation then the default unit will be used.
 
 #### Weight
 
 | Code | Description |
 |:-----|:-------------|
-| lb | Pounds |
-| oz | Ounces |
-| kg | Kilograms |
-| g  | Grams |
+| POUND | Pounds |
+| OUNCE | Ounces |
+| KILOGRAM | Kilograms |
+| GRAM  | Grams |
 
 #### Length
 
 | Code | Description |
 |:-----|:-------------|
-| in | Inches |
-| cm | Centimeters |
-| mm | Millimeters |
+| INCH | Inches |
+| CENTIMETER | Centimeters |
+| MILLIMETER | Millimeters |
 
 #### Volume
 

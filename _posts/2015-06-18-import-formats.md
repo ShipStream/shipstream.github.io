@@ -94,7 +94,7 @@ If a field supports multiple values such as 'hts_country_code' or 'special_other
 
 ```
 sku,name,barcode,goods_type,weight,weight_unit,length,width,height,dimension_unit,country_of_manufacture,hts_base_code,hts_country_code,requires_packaging,can_contain_other_items,confirmation_per_item,valid_containers,special_supplies,special_other,unit_qty
-"productsku","Product Name","productbarcode","NORMAL","1.75","lb","123","100","28","in","DK","1234.56","BH:1000|ZW:1001",1,0,0,"containerssku1|containerssku2","suppliessku1|suppliessku2","othersku1|othersku2",5
+"productsku","Product Name","productbarcode","NORMAL","1.75","POUND","123","100","28","INCH","DK","1234.56","BH:1000|ZW:1001",1,0,0,"containerssku1|containerssku2","suppliessku1|suppliessku2","othersku1|othersku2",5
 ```
 
 <h2 id="product_standard_json">
@@ -112,11 +112,11 @@ Importing products in JSON format should follow the '<a href="/ref/product.html#
   "barcode" : "product3",
   "goods_type" : "NORMAL",
   "weight" : 1.75,
-  "weight_unit" : "lb",
+  "weight_units" : "POUND",
   "length" : 123,
   "width" : 100,
   "height" : 28,
-  "dimension_unit" : "in",
+  "dimension_units" : "INCH",
   "country_of_manufacture" : "DK",
   "hts_base_code" : 1234.56,
   "hts_country_code" : "BH:1000|ZW:1001",
@@ -285,11 +285,11 @@ filter {
           "barcode"        => event["barcode"],
           "goods_type"     => event["goods_type"],
           "weight"         => event["weight"],
-          "weight_unit"    => event["weight_unit"],
+          "weight_units"   => event["weight_units"],
           "length"         => event["length"],
           "width"          => event["width"],
           "height"         => event["height"],
-          "dimension_unit" => event["dimension_unit"],
+          "dimension_units"=> event["dimension_units"],
         }
       }
     }'
