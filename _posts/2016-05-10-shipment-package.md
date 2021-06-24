@@ -159,10 +159,10 @@ Retrieve list of packages by filters. Package data can be customized by specifyi
         </td>
     </tr>
     <tr>
-        <th>weight_units</th>
+        <th>weight_unit</th>
         <td>
-            <pre><code>{ "weight_units" : "POUND" }</code></pre>
-            The "Weight Units" property. See: <a href="/doc/units-of-measure.html#weight" title="Weight Units">Weight Units</a>.
+            <pre><code>{ "weight_unit" : "lb" }</code></pre>
+            The unit of measure used for <code>weight</code>. See: <a href="/doc/units-of-measure.html#weight" title="Weight Units">Weight Units</a>.
         </td>
     </tr>
     <tr>
