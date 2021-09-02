@@ -14,8 +14,18 @@ is then passed to subsequent requests to `call`. The `call` procedure takes the 
 
 ### Authentication
 
-You can either retrieve a session ID using the `login` method to be used for subsequent requests to `call`, or use HTTP
-Basic Auth to pass the login parameters to `call` and use `null` for the first parameter (no session ID).
+The preferred authentication method is to use HTTP Basic Auth with the API key username and password in which case the
+`session_id` parameter to the `call` method should be `null`.
+
+You can also retrieve a session ID using the `login` method to be used for subsequent requests to `call` in which case
+it is not necessary to use HTTP Basic Auth. 
+
+#### HTTP Basic Auth Example
+
+```
+$ echo '{"jsonrpc":2.0,"id":1234,"method":"call","params":[null,"warehouse.list",[]]}' \
+  | http POST https://apiuser:password@example.shipstream.app/api/jsonrpc
+```
 
 ### Request Format
 
@@ -95,15 +105,18 @@ will be reported via the API without the formula applied.
 login `(username, api_key)`
 =====
 
-An API session is started by calling the `login` method to get a session ID. The session ID must be provided for
-subsequent calls to `call` and will expire after 24 hours.
+**If using HTTP Basic Auth described above you do not need to use a session ID!**
+
+An API session is started by calling the `login` method to get a session ID. The session ID will expire after 24 hours
+and can be used as the first method parameter for subsequent calls to `call`. If using HTTP Basic Auth then there is no
+need for a session ID and this first parameter can be `null`.
 
 #### Parameters
 
-| order | description |
-| ----- | ----------- |
-| 0 | The API user's username. |
-| 1 | The API user's API key (password). |
+| order | type | description |
+| ----- | ---- | ----------- |
+| 0 | string | The API user's username. |
+| 1 | string | The API user's API key (password). |
 
 #### Return Value
 
@@ -168,11 +181,11 @@ The 'call' method is used to call all other API endpoints which are detail in th
 
 #### Parameters
 
-| order | description |
-| ----- | ----------- |
-| 0 | The session id. |
-| 1 | The API method to call. This always takes the form of "`resource.method`". E.g. "`state.get`" |
-| 2 | The arguments to the API method. If there are no additional arguments this parameter may be omitted. |
+| order | type | description |
+| ----- | ---- | ----------- |
+| 0 | null,string | The session ID obtained from calling `login` or `null` if using HTTP Basic Auth. |
+| 1 | string | The API method to call. This always takes the form of "`resource.method`". E.g. "`state.get`" |
+| 2 | array | The arguments to the API method. If there are no additional arguments this parameter may be omitted. |
 
 #### Return Value
 
