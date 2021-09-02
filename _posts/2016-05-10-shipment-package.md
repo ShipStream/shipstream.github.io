@@ -155,14 +155,21 @@ Retrieve list of packages by filters. Package data can be customized by specifyi
         <th>weight</th>
         <td>
             <pre><code>{ "weight" : 12 }</code></pre>
-            The "Weight" propertry.
+            The "Weight" property.
+        </td>
+    </tr>
+    <tr>
+        <th>weight_unit</th>
+        <td>
+            <pre><code>{ "weight_unit" : "lb" }</code></pre>
+            The unit of measure used for <code>weight</code>. See: <a href="/doc/units-of-measure.html#weight" title="Weight Units">Weight Units</a>.
         </td>
     </tr>
     <tr>
         <th>qty</th>
         <td>
             <pre><code>{ "qty" : 1 }</code></pre>
-            The "Quantity" propertry.
+            The "Quantity" property.
         </td>
     </tr>
     <tr>

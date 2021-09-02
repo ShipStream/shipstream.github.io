@@ -93,8 +93,8 @@ If a field supports multiple values such as 'hts_country_code' or 'special_other
 #### Example Input File [\[Download Sample\]](/samples/product_import_sample.csv)
 
 ```
-sku,name,barcode,goods_type,weight,length,width,height,country_of_manufacture,hts_base_code,hts_country_code,requires_packaging,can_contain_other_items,confirmation_per_item,valid_containers,special_supplies,special_other,unit_qty
-"productsku","Product Name","productbarcode","NORMAL","1.75","123","100","28","DK","1234.56","BH:1000|ZW:1001",1,0,0,"containerssku1|containerssku2","suppliessku1|suppliessku2","othersku1|othersku2",5
+sku,name,barcode,goods_type,weight,weight_unit,length,width,height,dimension_unit,country_of_manufacture,hts_base_code,hts_country_code,requires_packaging,can_contain_other_items,confirmation_per_item,valid_containers,special_supplies,special_other,unit_qty
+"productsku","Product Name","productbarcode","NORMAL","1.75","lb","123","100","28","in","DK","1234.56","BH:1000|ZW:1001",1,0,0,"containerssku1|containerssku2","suppliessku1|suppliessku2","othersku1|othersku2",5
 ```
 
 <h2 id="product_standard_json">
@@ -112,9 +112,11 @@ Importing products in JSON format should follow the '<a href="/ref/product.html#
   "barcode" : "product3",
   "goods_type" : "NORMAL",
   "weight" : 1.75,
+  "weight_unit" : "lb",
   "length" : 123,
   "width" : 100,
   "height" : 28,
+  "dimension_unit" : "in",
   "country_of_manufacture" : "DK",
   "hts_base_code" : 1234.56,
   "hts_country_code" : "BH:1000|ZW:1001",
@@ -145,7 +147,7 @@ When using Delivery Imports the `merchant_ref` values must be unique to the `del
 Since an import can create multiple items at once the System uses the Merchant Ref to check for duplicates.  
  Example: Upload a file with 10 different ASNs.  After importing, the System states that of the ten, five had errors and five successfully imported.  Correct those five, whether that is in the file or by adding a SKU to the System, etc.  With the corrections made, import the same file but have the System handle duplicates by Dropping them.  This way the same file can be reused without accidentally entering a duplicate ASN.  Allowing the focus to be on fixing the ASNs that failed instead of needing to also make a new file to import the ASNs.
  
- There are other possable column headers that can be found at <a href="/ref/delivery.html#delivery_properties">Delivery Properties</a>.  Some of these can be used, some are only for values returned by the API.
+There are other possible column headers that can be found at <a href="/ref/delivery.html#delivery_properties">Delivery Properties</a>.  Some of these can be used, some are only for values returned by the API.
 
 #### Example Input File [\[Download Sample\]](/samples/delivery_import_sample.csv)
 
@@ -279,13 +281,15 @@ filter {
       "args" => {
         "sku" => event["sku"],
         "product_data" => {
-          "name"         => event["name"],
-          "barcode"      => event["barcode"],
-          "goods_type"   => event["goods_type"],
-          "weight"       => event["weight"],
-          "length"       => event["length"],
-          "width"        => event["width"],
-          "height"       => event["height"]
+          "name"           => event["name"],
+          "barcode"        => event["barcode"],
+          "goods_type"     => event["goods_type"],
+          "weight"         => event["weight"],
+          "weight_unit"    => event["weight_unit"],
+          "length"         => event["length"],
+          "width"          => event["width"],
+          "height"         => event["height"],
+          "dimension_unit" => event["dimension_unit"],
         }
       }
     }'
