@@ -127,7 +127,7 @@ Upon a successful login the result will be a session ID which is a 32-character 
 #### Example Request
 
 <div class="api-endpoint-request">
-    <pre><span class="api-endpoint-request-type">POST</span>/backend/api/jsonrpc</pre>
+    <pre><span class="api-endpoint-request-type">POST</span>/api/jsonrpc</pre>
 </div>
 
 ```json
