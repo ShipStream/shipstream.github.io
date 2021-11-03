@@ -40,6 +40,7 @@ not be available on your account or in your area but all services are listed for
 | ups_01 | UPS Next Day Air |
 | ups_02 | UPS Second Day Air |
 | ups_03 | UPS Ground |
+| ups_11 | UPS Standard |
 | ups_12 | UPS Three-Day Select |
 | ups_14 | UPS Next Day Air Early A.M. |
 | ups_59 | UPS Second Day Air A.M. |
