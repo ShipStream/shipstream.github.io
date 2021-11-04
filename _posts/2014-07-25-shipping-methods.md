@@ -44,6 +44,7 @@ not be available on your account or in your area but all services are listed for
 | ups_12 | UPS Three-Day Select |
 | ups_14 | UPS Next Day Air Early A.M. |
 | ups_59 | UPS Second Day Air A.M. |
+| ups_65 | UPS Worldwide Saver |
 | ups_SP | UPS SurePost |
 
 #### USPS Methods
