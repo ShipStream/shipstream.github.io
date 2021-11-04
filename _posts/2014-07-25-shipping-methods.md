@@ -99,6 +99,7 @@ not be available on your account or in your area but all services are listed for
 | cheapest_ON_TIME | Cheapest shipping method to arrive on-time. This requires valid "desired_delivery_date" as well.
 
 #### Other
+The External Shipping Methods are user defined whithin ShipStream.  This list is not exhaustive, but instead exemplifies how all External Shipping Method codes are prefixed with `external_` .  _For External Shipping Method codes used by your 3PL please contact your represintative._
 
 | Code | Description |
 |:-----|:-------------|
