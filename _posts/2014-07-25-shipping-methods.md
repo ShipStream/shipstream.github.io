@@ -79,6 +79,12 @@ not be available on your account or in your area but all services are listed for
 | ontrac_C | OnTrac Ground |
 | ontrac_DC | OnTrac Same Day |
 
+#### LaserShip Services
+
+| Code | Description |
+|:-----|:-------------|
+| lasership_NextDay | LaserShip NextDay |
+
 #### "Cheapest" Methods
 
 | Code | Description |
