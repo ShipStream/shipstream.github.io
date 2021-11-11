@@ -123,6 +123,13 @@ Retrieve list of packages by filters. Package data can be customized by specifyi
         </td>
     </tr>
     <tr>
+        <th>sscc</th>
+        <td>
+            <pre><code>{ "sscc" : "008012349999999997" }</code></pre>
+            The Serial Shipping Container Code.
+        </td>
+    </tr>
+    <tr>
         <th>tracking_numbers</th>
         <td>
             Array of <a href="#track_properties">Shipment Track</a> objects.
