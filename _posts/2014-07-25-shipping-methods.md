@@ -86,6 +86,16 @@ not be available on your account or in your area but all services are listed for
 |:-----|:-------------|
 | lasership_NextDay | LaserShip NextDay |
 
+#### GLS Services
+
+| Code | Description |
+|:-----|:-------------|
+| gls_Ground | GLS Ground |
+| gls_PriorityOvernight | GLS Priority Overnight |
+| gls_EarlyPriorityOvernight | GLS Early Priority Overnight |
+| gls_EarlySaturday | GLS Early Saturday |
+| gls_SaturdayDelivery | GLS Saturday Delivery |
+
 #### "Cheapest" Methods
 
 | Code | Description |
