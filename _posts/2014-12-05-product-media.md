@@ -157,7 +157,7 @@ An array of objects. Each object will contain "<a href="#image_type_properties">
             "scope" : "store"
         }
     ]
-}}
+}
 ```
 
 ----
