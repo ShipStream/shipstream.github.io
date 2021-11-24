@@ -5,7 +5,7 @@ title: "Delivery Label"
 category: ref
 parent: "Delivery"
 date: 2021-01-21 17:27:22
-order: 6
+order: 30
 ---
 
 #### Methods

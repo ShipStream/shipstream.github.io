@@ -4,7 +4,7 @@ title: "Shipping Methods"
 category: doc
 parent: "API Basics"
 date: 2014-07-29 12:12:51
-order: 130
+order: 240
 ---
 
 The following shipping methods are supported by the API where a "shipping_method" parameter is used. Some services may
