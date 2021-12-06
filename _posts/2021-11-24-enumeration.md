@@ -11,6 +11,8 @@ order: 40
  * [enumeration.list](#enumeration_list)
  * [enumeration.info](#enumeration_info)
 
+*These methods were added in version 2021.6*
+
 ----
 
 #### Entity Properties
