@@ -4,7 +4,7 @@ title: "Units of Measure"
 category: doc
 parent: "API Basics"
 date: 2021-05-20 15:26:51
-order: 140
+order: 250
 ---
 
 The following units of measure are supported by the API for any property with a "_unit" suffix. If a unit is not 

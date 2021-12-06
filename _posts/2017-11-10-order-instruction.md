@@ -5,7 +5,7 @@ title: "Instructions"
 category: ref
 parent: "Order"
 date: 2017-11-10 14:42:47
-order: 17
+order: 90
 ---
 
 #### Methods
@@ -55,13 +55,13 @@ An object with the new [Order Instruction](#order_instruction_properties). The "
         "order_instruction.create",
         [
             "100000309",
-            "Place Amazon FBA Label in a pouch"
+            "Place Amazon FBA Label in a pouch",
             {
                 "file_name" : "amazon_fba_3425232.pdf",
                 "file_content" : "base64 encoded file content",
                 "presentation" : "once_per_shipment",
                 "print_target" : "LASER"
-            },
+            }
         ]
     ]
 }

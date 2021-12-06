@@ -4,7 +4,7 @@ title: "Media"
 category: ref
 parent: "Product"
 date: 2014-12-05 12:40:01
-order: 21
+order: 110
 ---
 
 #### Methods
@@ -157,7 +157,7 @@ An array of objects. Each object will contain "<a href="#image_type_properties">
             "scope" : "store"
         }
     ]
-}}
+}
 ```
 
 ----
