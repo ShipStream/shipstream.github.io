@@ -47,8 +47,8 @@ If both `unique_id` and `order_ref` are supplied then the `unique_id` will be us
 ```
 order_ref,shipping_method,firstname,lastname,company,street1,city,region,postcode,country,telephone,sku,qty
 123456,ups_01,Bill,Gates,Microsoft,11 Times Square,New York,NY,10036,US,212.245.2100,product1,5
-123456,,,,,,,,,,,,product2,1
-123456,,,,,,,,,,,,product3,2
+123456,,,,,,,,,,,product2,1
+123456,,,,,,,,,,,product3,2
 ```
 
 <h2 id="order_standard_json">
