@@ -1,0 +1,17 @@
+{
+  "sku": "bom1",
+  "name": "BOM 1",
+  "yield_qty": "1",
+  "is_kit_on_demand": true,
+  "priority": "0",
+  "components": [
+    {
+      "sku": "component1",
+      "qty": "1"
+    },
+    {
+      "sku": "component2",
+      "qty": "1"
+    }
+  ]
+}

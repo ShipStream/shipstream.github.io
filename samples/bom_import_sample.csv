@@ -1,0 +1,3 @@
+name,sku,yield_qty,is_kit_on_demand,assembly_instructions,priority,component_sku,component_qty
+BOM 1,bom1,1,Yes,,0,component1,1
+BOM 1,bom1,1,Yes,,0,component2,1

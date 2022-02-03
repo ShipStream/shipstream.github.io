@@ -12,6 +12,8 @@ order: 260
 * [Product - Standard JSON](#product_standard_json)
 * [Delivery - Standard CSV](#delivery_standard_csv)
 * [Delivery - Standard JSON](#delivery_standard_json)
+* [Bill of Materials - Standard CSV](#bom_standard_csv)
+* [Bill of Materials - Standard JSON](#bom_standard_json)
 
 ---
 
@@ -189,6 +191,50 @@ Importing deliveries in JSON format should follow the '<a href="/ref/delivery.ht
 ```
 
 <strong><span style="color:red">Important!</span></strong> JSON for each delivery must be a single line. Multi-line JSON is not allowed.
+
+<h2 id="bom_standard_csv">
+Bill of Materials - Standard CSV
+</h2>
+
+The header row should contain all field names and each following row contains bill of materials data. Each row must specify a SKU at minimum.
+
+#### Example Input File [\[Download Sample\]](/samples/bom_import_sample.csv)
+
+```
+name,sku,yield_qty,is_kit_on_demand,assembly_instructions,priority,component_sku,component_qty
+BOM 1,bom1,1,Yes,,0,component1,1
+BOM 1,bom1,1,Yes,,0,component2,1
+```
+
+<h2 id="bom_standard_json">
+Bill of Materials - Standard JSON
+</h2>
+
+Importing bill of materials in JSON format should follow the '<a href="/ref/bom.html#bom_create">bom.create</a>' inputs exactly.
+
+#### Example Input File [\[Download Sample\]](/samples/bom_import_sample.json){:download="bom_import_sample.json"}
+
+```json
+{
+  "sku": "bom1",
+  "name": "BOM 1",
+  "yield_qty": "1",
+  "is_kit_on_demand": true,
+  "priority": "0",
+  "components": [
+    {
+      "sku": "component1",
+      "qty": "1"
+    },
+    {
+      "sku": "component2",
+      "qty": "1"
+    }
+  ]
+}  
+```
+
+<strong><span style="color:red">Important!</span></strong> JSON for each bill of materials must be a single line. Multi-line JSON is not allowed.
 
 ---
 
