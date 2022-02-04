@@ -196,14 +196,16 @@ Importing deliveries in JSON format should follow the '<a href="/ref/delivery.ht
 Bill of Materials - Standard CSV
 </h2>
 
+The "id" field is only used to group multiple lines into a single bill of materials. If importing a single bill of materials it can be blank, but if importing multiple bills of materials it should be unique for each separate bill of materials in the CSV file.
+
 The header row should contain all field names and each following row contains bill of materials data. Each row must specify a SKU at minimum.
 
 #### Example Input File [\[Download Sample\]](/samples/bom_import_sample.csv)
 
 ```
-name,sku,yield_qty,is_kit_on_demand,assembly_instructions,priority,component_sku,component_qty
-BOM 1,bom1,1,Yes,,0,component1,1
-BOM 1,bom1,1,Yes,,0,component2,1
+id,name,sku,yield_qty,is_kit_on_demand,is_kit_to_stock,assembly_instructions,priority,component_sku,component_qty
+1,BOM 1,bom1,1,Yes,No,,0,component1,1
+1,BOM 1,bom1,1,Yes,No,,0,component2,1
 ```
 
 <h2 id="bom_standard_json">
@@ -216,10 +218,12 @@ Importing bill of materials in JSON format should follow the '<a href="/ref/bom.
 
 ```json
 {
+  "id": "1",
   "sku": "bom1",
   "name": "BOM 1",
   "yield_qty": "1",
   "is_kit_on_demand": true,
+  "is_kit_to_stock": false,
   "priority": "0",
   "components": [
     {
