@@ -95,8 +95,8 @@ If a field supports multiple values such as 'hts_country_code' or 'special_other
 #### Example Input File [\[Download Sample\]](/samples/product_import_sample.csv)
 
 ```
-sku,name,barcode,goods_type,weight,weight_unit,length,width,height,dimension_unit,country_of_manufacture,hts_base_code,hts_country_code,requires_packaging,can_contain_other_items,confirmation_per_item,valid_containers,special_supplies,special_other,unit_qty
-"productsku","Product Name","productbarcode","NORMAL","1.75","lb","123","100","28","in","DK","1234.56","BH:1000|ZW:1001",1,0,0,"containerssku1|containerssku2","suppliessku1|suppliessku2","othersku1|othersku2",5
+sku,name,barcode,goods_type,weight,weight_unit,length,width,height,dimension_unit,country_of_manufacture,hts_base_code,hts_country_code,requires_packaging,can_contain_other_items,confirmation_per_item,valid_containers,special_supplies,special_other,unit_qty,backorders,dynamic_allocation,virtual_inventory
+"productsku","Product Name","productbarcode","NORMAL","1.75","lb","123","100","28","in","DK","1234.56","BH:1000|ZW:1001",1,0,0,"containerssku1|containerssku2","suppliessku1|suppliessku2","othersku1|othersku2",5,"Yes","Use Config","optimistic"
 ```
 
 <h2 id="product_standard_json">
@@ -130,7 +130,10 @@ Importing products in JSON format should follow the '<a href="/ref/product.html#
   "special_other" : [ "othersku1", "othersku2" ],
   "unit_qty" : 5,
   "additional_regulatory_info" : "EX1995120111C",
-  "meets_hazmat_specs" : 1
+  "meets_hazmat_specs" : 1,
+  "backorders" : "Yes",
+  "dynamic_allocation" : "Use Config",
+  "virtual_inventory" : "optimistic"
 }  
 ```
 
