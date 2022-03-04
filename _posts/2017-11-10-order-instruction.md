@@ -17,6 +17,13 @@ order: 90
 
 ----
 
+#### Entity Properties
+
+ * [Order Instruction](#order_instruction_properties)
+ * [Order Instruction Confirmation](#order_instruction_confirmation_properties)
+
+----
+
 <h1 id="order_instruction_create">
 order_instruction.create
 </h1>
@@ -60,7 +67,9 @@ An object with the new [Order Instruction](#order_instruction_properties). The "
                 "file_name" : "amazon_fba_3425232.pdf",
                 "file_content" : "base64 encoded file content",
                 "presentation" : "once_per_shipment",
-                "print_target" : "LASER"
+                "print_target" : "LASER",
+                "copies_printed" : "0",
+                "confirmations" : []
             }
         ]
     ]
@@ -158,7 +167,9 @@ An object with the updated [Order Instruction](#order_instruction_properties). T
         "note" : "Place Amazon FBA Label in a pouch",
         "file_name" : "amazon_fba_3425232.pdf",
         "presentation" : "once_per_order",
-        "print_target" : "LASER"
+        "print_target" : "LASER",
+        "copies_printed" : "0",
+        "confirmations" : []
     }
 }
 ```
@@ -228,9 +239,15 @@ An array of objects. Each object will contain [Order Instruction](#order_instruc
             "note" : "Place Amazon FBA Label in a pouch",
             "file_name" : "amazon_fba_3425232.pdf",
             "presentation" : "once_per_shipment",
-            "print_target" : "LASER"
-        },
-        ...
+            "print_target" : "LASER",
+            "copies_printed" : "1",
+            "confirmations" : [
+                {
+                    "confirmed_id" : "1",
+                    "confirmed_at": "2022-02-08T14:59:38+00:00"
+                }
+            ]
+        }
     ]
 }
 ```
@@ -293,10 +310,6 @@ true if the order instruction was deleted.
 }
 ```
 
-#### Entity Properties
-
- * [Order Instruction](#order_instruction_properties)
-
 ----
 
 ## Entity Properties
@@ -340,6 +353,43 @@ true if the order instruction was deleted.
         <td>
             <pre><code>{ "print_target" : "LASER" }</code></pre>
             The "print_target" property. Allowed values: "LABEL", "SMALL_LABEL", "LASER".
+        </td>
+    </tr>
+    <tr>
+        <th>copies_printed</th>
+        <td>
+            <pre><code>{ "copies_printed" : "0" }</code></pre>
+            The "copies_printed" property.
+        </td>
+    </tr>
+    <tr>
+        <th>confirmations</th>
+        <td>
+            <pre><code>{ "confirmations" : [] }</code></pre>
+            The instruction confirmations. See "<a href="#order_instruction_confirmation_properties">Order Instruction Confirmation Properties</a>".
+        </td>
+    </tr>
+</tbody>
+</table>
+
+<h3 id="order_instruction_confirmation_properties">
+    Order Instruction Confirmation Properties
+</h3>
+
+<table class="table-striped">
+<tbody>
+    <tr>
+        <th>confirmed_id</th>
+        <td>
+            <pre><code>{ "confirmed_id" : "1" }</code></pre>
+            The ID of the instruction confirmation.
+        </td>
+    </tr>
+    <tr>
+        <th>confirmed_at</th>
+        <td>
+            <pre><code>{ "confirmed_at" : "2022-02-08T14:59:38+00:00" }</code></pre>
+            Date and time when the instruction was confirmed in ISO 8601 format.
         </td>
     </tr>
 </tbody>
