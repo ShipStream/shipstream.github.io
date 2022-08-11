@@ -522,9 +522,13 @@ An object with <a href="#delivery_label_properties">Delivery Label Properties</a
 #### Error Codes
 
 | code | message |
-| ---- | ------- |
-| 100 | Requested delivery does not exist. |
-| 102 | Invalid data given. Details in error message. |
+|------| ------- |
+| 100  | Requested delivery label does not exist. |
+| 101  | Invalid filters given. Details in error message. | 
+| 102  | Invalid data given. Details in error message. |
+| 103  | Cannot void the delivery label. Details in error message. |
+| 104  | An unexpected error occurred while creating the delivery label. |
+| 105  | Requested delivery does not exist. |
 
 ---
 
