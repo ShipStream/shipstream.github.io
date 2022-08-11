@@ -880,6 +880,20 @@ Void delivery label.
     </td>
 </tr>
 <tr>
+    <th>copy_email_to</th>
+    <td>
+        <pre><code>{ "copy_email_to" : "customer@example.com" }</code></pre>
+        The "Copy Email To" property. Comma separated emails. Only applicable to "email_label" Return Service Type.
+    </td>
+</tr>
+<tr>
+    <th>email_message</th>
+    <td>
+        <pre><code>{ "email_message" : "Email message here." }</code></pre>
+        The "Email Notification Message" property. Only applicable to "email_label" Return Service Type.
+    </td>
+</tr>
+<tr>
     <th>saturday_pickup</th>
     <td>
         <pre><code>{ "saturday_pickup" : 1 }</code></pre>
