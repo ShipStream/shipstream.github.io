@@ -522,9 +522,13 @@ An object with <a href="#delivery_label_properties">Delivery Label Properties</a
 #### Error Codes
 
 | code | message |
-| ---- | ------- |
-| 100 | Requested delivery does not exist. |
-| 102 | Invalid data given. Details in error message. |
+|------| ------- |
+| 100  | Requested delivery label does not exist. |
+| 101  | Invalid filters given. Details in error message. | 
+| 102  | Invalid data given. Details in error message. |
+| 103  | Cannot void the delivery label. Details in error message. |
+| 104  | An unexpected error occurred while creating the delivery label. |
+| 105  | Requested delivery does not exist. |
 
 ---
 
@@ -877,6 +881,20 @@ Void delivery label.
     <td>
         <pre><code>{ "return_service_type" : "print_or_download" }</code></pre>
         The "Return Service Type" property. Allowed: "print_or_download", "email_label".
+    </td>
+</tr>
+<tr>
+    <th>copy_email_to</th>
+    <td>
+        <pre><code>{ "copy_email_to" : "customer@example.com" }</code></pre>
+        The "Copy Email To" property. Comma separated emails. Only applicable to "email_label" Return Service Type.
+    </td>
+</tr>
+<tr>
+    <th>email_message</th>
+    <td>
+        <pre><code>{ "email_message" : "Email message here." }</code></pre>
+        The "Email Notification Message" property. Only applicable to "email_label" Return Service Type.
     </td>
 </tr>
 <tr>
