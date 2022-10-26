@@ -64,12 +64,14 @@ An array of objects. Each object will contain "<a href="#tpb_group_properties">T
         {
             "tpb_group_id" : 73,
             "label" : "TPB Group A",
-            "status" : "active"
+            "status" : "active",
+            "payment_types" : ["shipping"] 
         },
         {
             "tpb_group_id" : 74,
             "label" : "TPB Group B",
-            "status" : "pending_approval"
+            "status" : "pending_approval",
+            "payment_types" : ["shipping", "duties_and_taxes"]
         }
     ]
 }
@@ -102,6 +104,13 @@ An array of objects. Each object will contain "<a href="#tpb_group_properties">T
         <td>
             <pre><code>{ "status" : "active" }</code></pre>
             The status of the group. Possible values: <code>active</code>, <code>inactive</code>, <code>pending_approval</code> 
+        </td>
+    </tr>
+    <tr>
+        <th>payment_types</th>
+        <td>
+            <pre><code>{ "payment_types" : ["shipping"] }</code></pre>
+            The payment types of the group. Allowed payment types: <code>shipping</code>, <code>duties_and_taxes</code> 
         </td>
     </tr>
 </tbody>
