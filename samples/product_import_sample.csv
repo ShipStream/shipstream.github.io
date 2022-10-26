@@ -1,2 +1,2 @@
-sku,name,barcode,goods_type,weight,length,width,height,country_of_manufacture,hts_base_code,hts_country_code,requires_packaging,can_contain_other_items,confirmation_per_item,valid_containers,special_supplies,special_other,unit_qty
-"productsku","Product Name","productbarcode","NORMAL","1.75","123","100","28","DK","1234.56","BH:1000|ZW:1001",1,0,0,"containersku1|containersku2","suppliessku1|suppliessku2","othersku1|othersku2",5
+sku,name,barcode,goods_type,weight,length,width,height,country_of_manufacture,hts_base_code,hts_country_code,requires_packaging,can_contain_other_items,confirmation_per_item,allowed_container_styles,valid_containers,disallowed_containers,special_supplies,special_other,unit_qty
+"productsku","Product Name","productbarcode","NORMAL","1.75","123","100","28","DK","1234.56","BH:1000|ZW:1001",1,0,0,"rigid_box|bubble_mailer","containersku1|containersku2","containersku3|containersku4","suppliessku1|suppliessku2","othersku1|othersku2",5

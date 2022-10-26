@@ -95,8 +95,8 @@ If a field supports multiple values such as 'hts_country_code' or 'special_other
 #### Example Input File [\[Download Sample\]](/samples/product_import_sample.csv)
 
 ```
-sku,name,barcode,goods_type,weight,weight_unit,length,width,height,dimension_unit,country_of_manufacture,hts_base_code,hts_country_code,requires_packaging,can_contain_other_items,confirmation_per_item,valid_containers,special_supplies,special_other,unit_qty,backorders,dynamic_allocation,virtual_inventory
-"productsku","Product Name","productbarcode","NORMAL","1.75","lb","123","100","28","in","DK","1234.56","BH:1000|ZW:1001",1,0,0,"containerssku1|containerssku2","suppliessku1|suppliessku2","othersku1|othersku2",5,"Yes","Use Config","optimistic"
+sku,name,barcode,goods_type,weight,weight_unit,length,width,height,dimension_unit,country_of_manufacture,hts_base_code,hts_country_code,requires_packaging,can_contain_other_items,confirmation_per_item,allowed_container_styles,valid_containers,disallowed_containers,special_supplies,special_other,unit_qty,backorders,dynamic_allocation,virtual_inventory
+"productsku","Product Name","productbarcode","NORMAL","1.75","lb","123","100","28","in","DK","1234.56","BH:1000|ZW:1001",1,0,0,"rigid_box|pallet","containerssku1|containerssku2","containerssku3|containerssku4","suppliessku1|suppliessku2","othersku1|othersku2",5,1,2,"optimistic"
 ```
 
 <h2 id="product_standard_json">
@@ -125,7 +125,9 @@ Importing products in JSON format should follow the '<a href="/ref/product.html#
   "requires_packaging" : 1,
   "can_contain_other_items" : 0,
   "confirmation_per_item" : 0,
+  "allowed_container_styles" : [ "rigid_box", "bubble_mailer" ],
   "valid_containers" : [ "containersku1", "containersku2" ],
+  "disallowed_containers" : [ "containersku3", "containersku4" ],
   "special_supplies" : [ "supplysku1", "supplysku2" ],
   "special_other" : [ "othersku1", "othersku2" ],
   "unit_qty" : 5,
