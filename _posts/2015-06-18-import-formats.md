@@ -133,8 +133,8 @@ Importing products in JSON format should follow the '<a href="/ref/product.html#
   "unit_qty" : 5,
   "additional_regulatory_info" : "EX1995120111C",
   "meets_hazmat_specs" : 1,
-  "backorders" : "Yes",
-  "dynamic_allocation" : "Use Config",
+  "backorders" : 1,
+  "dynamic_allocation" : 2,
   "virtual_inventory" : "optimistic"
 }  
 ```
