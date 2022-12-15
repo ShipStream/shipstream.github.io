@@ -14,5 +14,11 @@
     "product1" : 2,
     "product2" : 3,
     "product3" : 1
+  },
+  "custom_fields" : {
+    "claim_reasons" : ["Damaged in shipping", "Did not fit"],
+    "cost_of_goods" : "41.32",
+    "allow_mailer" : "true",
+    "claim_reason" : {"id" : 13}
   }
 }

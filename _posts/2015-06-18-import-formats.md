@@ -47,10 +47,10 @@ If both `unique_id` and `order_ref` are supplied then the `unique_id` will be us
 #### Example Input File [\[Download Sample\]](/samples/order_import_sample.csv)
 
 ```
-order_ref,shipping_method,firstname,lastname,company,street1,city,region,postcode,country,telephone,sku,qty
-123456,ups_01,Bill,Gates,Microsoft,11 Times Square,New York,NY,10036,US,212.245.2100,product1,5
-123456,,,,,,,,,,,product2,1
-123456,,,,,,,,,,,product3,2
+order_ref,shipping_method,firstname,lastname,company,street1,city,region,postcode,country,telephone,sku,qty,@claim_reasons,@cost_of_goods,@allow_mailer,#claim_reason
+123456,ups_01,Bill,Gates,Microsoft,11 Times Square,New York,NY,10036,US,212.245.2100,product1,5,Damaged in shipping|Did not fit,41.32,true,13
+123456,,,,,,,,,,,product2,1,,,,
+123456,,,,,,,,,,,product3,2,,,,
 ```
 
 <h2 id="order_standard_json">
@@ -78,6 +78,12 @@ Importing orders in JSON format should follow the '<a href="/ref/order.html#orde
     "product1" : 2, 
     "product2" : 3, 
     "product3" : 1
+  },
+  "custom_fields" : {
+    "claim_reasons" : ["Damaged in shipping", "Did not fit"],
+    "cost_of_goods" : "41.32",
+    "allow_mailer" : "true",
+    "claim_reason" : {"id" : 13}
   }
 }
 ```
