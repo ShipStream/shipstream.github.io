@@ -193,7 +193,7 @@ order_instruction.list
 order_instruction.list (string $orderUniqueId, array|null $fields = [])
 ~~~
 
-Create a new order instruction.
+Retrieve list of order instructions.
 
 #### Parameters
 
