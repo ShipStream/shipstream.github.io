@@ -1,7 +1,7 @@
 ---
 published: true
 layout: page
-title: "Instructions"
+title: "Packing Instructions"
 category: ref
 parent: "Order"
 date: 2017-11-10 14:42:47
@@ -19,8 +19,8 @@ order: 90
 
 #### Entity Properties
 
- * [Order Instruction](#order_instruction_properties)
- * [Order Instruction Confirmation](#order_instruction_confirmation_properties)
+ * [Packing instruction](#order_instruction_properties)
+ * [Packing instruction Confirmation](#order_instruction_confirmation_properties)
 
 ----
 
@@ -32,7 +32,7 @@ order_instruction.create
 order_instruction.create (string $orderUniqueId, string $note, object|null $options)
 ~~~
 
-Create a new order instruction.
+Create a new Packing Instruction.
 
 #### Parameters
 
@@ -43,15 +43,36 @@ Create a new order instruction.
 : Note
 
 2 _object|null_
-: Additional Options (see "[Order Instruction](#order_instruction_properties)")
+: Additional Options (see "[Packing Instruction](#order_instruction_properties)")
 {:.code-defs.wide}
 
 #### Return Value
 
-An object with the new [Order Instruction](#order_instruction_properties). The "file_content" property is not returned. Use the [order_instruction.list](#order_instruction_list) method to retrieve it.
+An object with the new [Packing Instruction](#order_instruction_properties). The "file_content" property is not returned. Use the [order_instruction.list](#order_instruction_list) method to retrieve it.
 
 #### Example Request
 
+No file to print
+```json
+{
+    "jsonrpc" : 2.0,
+    "id" : 1234,
+    "method" : "call",
+    "params" : [
+        "be1c13ed4e03f0ed7f1e4053dfff9658",
+        "order_instruction.create",
+        [
+            "100000309",
+            "Sign gift card with 'Happy Birthday, Susan!'",
+            {
+                "presentation" : "once_per_order"
+            }
+        ]
+    ]
+}
+```
+
+Upload a file using Base64 encoding
 ```json
 {
     "jsonrpc" : 2.0,
@@ -65,11 +86,38 @@ An object with the new [Order Instruction](#order_instruction_properties). The "
             "Place Amazon FBA Label in a pouch",
             {
                 "file_name" : "amazon_fba_3425232.pdf",
-                "file_content" : "base64 encoded file content",
+                "file_content" : "base64-encoded file contents",
                 "presentation" : "once_per_shipment",
-                "print_target" : "LASER",
-                "copies_printed" : "0",
-                "confirmations" : []
+                "print_target" : "LASER"
+            }
+        ]
+    ]
+}
+```
+
+Upload a file using an HTTP request
+```json
+{
+    "jsonrpc" : 2.0,
+    "id" : 1234,
+    "method" : "call",
+    "params" : [
+        "be1c13ed4e03f0ed7f1e4053dfff9658",
+        "order_instruction.create",
+        [
+            "100000309",
+            "Place Amazon FBA Label in a pouch",
+            {
+                "file_name" : "amazon_fba_3425232.pdf",
+                "file_request" : {
+                    "url": "https://....",
+                    "auth": ["username...","password..."],
+                    "headers": {
+                        "X-Custom-Header": "header value..."
+                    }
+                },
+                "presentation" : "once_per_shipment",
+                "print_target" : "LASER"
             }
         ]
     ]
@@ -90,7 +138,9 @@ An object with the new [Order Instruction](#order_instruction_properties). The "
         "note" : "Place Amazon FBA Label in a pouch",
         "file_name" : "amazon_fba_3425232.pdf",
         "presentation" : "once_per_shipment",
-        "print_target" : "LASER"
+        "print_target" : "LASER",
+        "copies_printed" : "0",
+        "confirmations" : []
     }
 }
 ```
@@ -114,7 +164,7 @@ order_instruction.edit
 order_instruction.edit (string $instructionId, string|null $note, object|null $options)
 ~~~
 
-Modify the order instruction.
+Modify the packing instruction.
 
 #### Parameters
 
@@ -125,12 +175,12 @@ Modify the order instruction.
 : Note
 
 2 _object|null_
-: Additional Options (see "[Order Instruction](#order_instruction_properties)")
+: Additional Options (see "[Packing Instruction](#order_instruction_properties)")
 {:.code-defs.wide}
 
 #### Return Value
 
-An object with the updated [Order Instruction](#order_instruction_properties). The "file_content" property is not returned.
+An object with the updated [Packing Instruction](#order_instruction_properties). The "file_content" property is not returned.
 
 #### Example Request
 
@@ -181,7 +231,7 @@ An object with the updated [Order Instruction](#order_instruction_properties). T
 | code | message |
 | ---- | ------- |
 | 100 | Invalid data given. Details in error message. |
-| 101 | Requested order instruction does not exist. |
+| 101 | Requested packing instruction does not exist. |
 
 ----
 
@@ -193,7 +243,7 @@ order_instruction.list
 order_instruction.list (string $orderUniqueId, array|null $fields = [])
 ~~~
 
-Retrieve list of order instructions.
+Retrieve list of packing instructions.
 
 #### Parameters
 
@@ -205,7 +255,7 @@ Retrieve list of order instructions.
 
 #### Return Value
 
-An array of objects. Each object will contain [Order Instruction](#order_instruction_properties) properties. Include "file_content" to the list of the fields to return the "file_content" property.
+An array of objects. Each object will contain [Packing Instruction](#order_instruction_properties) properties. Include "file_content" to the list of the fields to return the "file_content" property.
 
 #### Example Request
 
@@ -271,7 +321,7 @@ order_instruction.delete
 order_instruction.delete (string $instructionId)
 ~~~
 
-Delete order instruction.
+Delete packing instruction.
 
 #### Parameters
 
@@ -280,7 +330,7 @@ Delete order instruction.
 
 #### Return Value
 
-true if the order instruction was deleted.
+true if the packing instruction was deleted.
 
 #### Example Request
 
@@ -315,7 +365,7 @@ true if the order instruction was deleted.
 ## Entity Properties
 
 <h3 id="order_instruction_properties">
-    Order Instruction Properties
+    Packing Instruction Properties
 </h3>
 
 <table class="table-striped">
@@ -331,14 +381,28 @@ true if the order instruction was deleted.
         <th>file_name</th>
         <td>
             <pre><code>{ "file_name" : "amazon_fba_3425232.pdf" }</code></pre>
-            The "file_name" property.
+            The name to be given to the file attached using the "file_content" or "file_request" properties.
         </td>
     </tr>
     <tr>
         <th>file_content</th>
         <td>
-            <pre><code>{ "file_content" : "base64 encoded file content" }</code></pre>
-            The "file_content" property. Must be base64 encoded.
+            <pre><code>{ "file_content" : "base64-encoded file contents" }</code></pre>
+            The base64-encoded contents of the file. If specified you must also provide a "file_name".
+        </td>
+    </tr>
+    <tr>
+        <th>file_request</th>
+        <td>
+            <pre><code>{ "file_request" : {
+      "url": "https://....",
+      "auth": ["username...","password..."],
+      "headers": {
+        "X-Custom-Header": "header value..."
+      }
+    } }</code></pre>
+            Attach a file using a url instead of <code>file_content</code>. The file will be downloaded using the optional <code>auth</code> and <code>headers</code> if specified.
+            The <code>file_name</code> will be used if specified, but is optional and will otherwise be set using the <code>Content-Disposition</code> header value or the last part of the url.
         </td>
     </tr>
     <tr>
@@ -366,14 +430,14 @@ true if the order instruction was deleted.
         <th>confirmations</th>
         <td>
             <pre><code>{ "confirmations" : [] }</code></pre>
-            The instruction confirmations. See "<a href="#order_instruction_confirmation_properties">Order Instruction Confirmation Properties</a>".
+            The instruction confirmations. See "<a href="#order_instruction_confirmation_properties">Packing instruction Confirmation Properties</a>".
         </td>
     </tr>
 </tbody>
 </table>
 
 <h3 id="order_instruction_confirmation_properties">
-    Order Instruction Confirmation Properties
+    Packing instruction Confirmation Properties
 </h3>
 
 <table class="table-striped">
