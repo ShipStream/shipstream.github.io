@@ -905,6 +905,13 @@ Void delivery label.
     </td>
 </tr>
 <tr>
+    <th>declared_value_service</th>
+    <td>
+        <pre><code>{ "declared_value_service" : 1 }</code></pre>
+        The "Declared Value Service" property.
+    </td>
+</tr>
+<tr>
     <th>tpb_group_id</th>
     <td>
         <pre><code>{ "tpb_group_id" : 11 }</code></pre>
