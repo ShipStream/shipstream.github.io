@@ -35,17 +35,17 @@ not be available on your account or in your area but all services are listed for
 
 #### UPS Services
 
-| Code | Description |
-|:-----|:-------------|
-| ups_01 | UPS Next Day Air |
-| ups_02 | UPS Second Day Air |
-| ups_03 | UPS Ground |
-| ups_11 | UPS Standard |
-| ups_12 | UPS Three-Day Select |
-| ups_14 | UPS Next Day Air Early A.M. |
-| ups_59 | UPS Second Day Air A.M. |
-| ups_65 | UPS Worldwide Saver |
-| ups_SP | UPS SurePost |
+| Code | Description                 |
+|:-----|:----------------------------|
+| ups_01 | UPS Next Day Air            |
+| ups_02 | UPS 2nd Day Air             |
+| ups_03 | UPS Ground                  |
+| ups_11 | UPS Standard                |
+| ups_12 | UPS 3 Day Select            |
+| ups_14 | UPS Next Day Air Early |
+| ups_59 | UPS 2nd Day Air A.M.        |
+| ups_65 | UPS Worldwide Saver         |
+| ups_SP | UPS SurePost                |
 
 #### USPS Methods
 
@@ -106,7 +106,7 @@ not be available on your account or in your area but all services are listed for
 | cheapest_THREE_DAY | Cheapest 3-day shipping method |
 | cheapest_TWO_DAY | Cheapest 2-day shippng method |
 | cheapest_OVERNIGHT | Cheapest overnight shipping method |
-| cheapest_ON_TIME | Cheapest shipping method to arrive on-time. This requires valid "desired_delivery_date" as well.
+| cheapest_ON_TIME | Cheapest shipping method to arrive on-time. This requires valid "desired_delivery_date" as well. |
 
 #### Other
 The External Shipping Methods are user defined whithin ShipStream.  This list is not exhaustive, but instead exemplifies how all External Shipping Method codes are prefixed with `external_` .  _For External Shipping Method codes used by your 3PL please contact your represintative._
