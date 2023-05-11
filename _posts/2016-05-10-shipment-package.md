@@ -117,6 +117,20 @@ Retrieve list of packages by filters. Package data can be customized by specifyi
         </td>
     </tr>
     <tr>
+        <th>shipped_at</th>
+        <td>
+            <pre><code>{ "shipped_at" : "2019-01-14T14:29:31+00:00" }</code></pre>
+            Date and time when the package was shipped from the warehouse in ISO 8601 format.
+        </td>
+    </tr>
+    <tr>
+        <th>delivered_at</th>
+        <td>
+            <pre><code>{ "delivered_at" : "2019-01-14T14:29:31+00:00" }</code></pre>
+            Date and time when the package was delivered in ISO 8601 format.
+        </td>
+    </tr>
+    <tr>
         <th>items</th>
         <td>
             Array of <a href="#package_item_properties">Package Item</a> objects.
