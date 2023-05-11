@@ -105,8 +105,8 @@ Retrieve list of packages by filters. Package data can be customized by specifyi
     <tr>
         <th>package_status</th>
         <td>
-            <pre><code>{ "package_status" : "not_on_manifest" }</code></pre>
-            The "Status" property. Allowed values: not_on_manifest, on_manifest, on_truck.
+            <pre><code>{ "package_status" : "packed" }</code></pre>
+            The "Status" property. Allowed values: packing, tracking_required, packed, manifested, shipped, delivered.
         </td>
     </tr>
     <tr>
