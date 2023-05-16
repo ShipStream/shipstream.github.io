@@ -105,8 +105,8 @@ Retrieve list of packages by filters. Package data can be customized by specifyi
     <tr>
         <th>package_status</th>
         <td>
-            <pre><code>{ "package_status" : "not_on_manifest" }</code></pre>
-            The "Status" property. Allowed values: not_on_manifest, on_manifest, on_truck.
+            <pre><code>{ "package_status" : "packed" }</code></pre>
+            The "Status" property. Allowed values: packing, tracking_required, packed, manifested, shipped, delivered.
         </td>
     </tr>
     <tr>
@@ -114,6 +114,20 @@ Retrieve list of packages by filters. Package data can be customized by specifyi
         <td>
             <pre><code>{ "updated_at" : "2016-05-11 18:51:18" }</code></pre>
             The "Updated At" property.
+        </td>
+    </tr>
+    <tr>
+        <th>shipped_at</th>
+        <td>
+            <pre><code>{ "shipped_at" : "2019-01-14T14:29:31+00:00" }</code></pre>
+            Date and time when the package was shipped from the warehouse in ISO 8601 format.
+        </td>
+    </tr>
+    <tr>
+        <th>delivered_at</th>
+        <td>
+            <pre><code>{ "delivered_at" : "2019-01-14T14:29:31+00:00" }</code></pre>
+            Date and time when the package was delivered in ISO 8601 format.
         </td>
     </tr>
     <tr>

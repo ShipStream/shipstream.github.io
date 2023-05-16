@@ -108,8 +108,8 @@ Get all enumerations for warehouse "2":
                         "label": "Canceled"
                     },
                     {
-                        "key": "loaded",
-                        "label": "Loaded"
+                        "key": "shipped",
+                        "label": "Shipped"
                     },
                     {
                         "key": "new",
