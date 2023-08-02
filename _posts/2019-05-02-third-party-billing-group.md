@@ -65,13 +65,19 @@ An array of objects. Each object will contain "<a href="#tpb_group_properties">T
             "tpb_group_id" : 73,
             "label" : "TPB Group A",
             "status" : "active",
-            "payment_types" : ["shipping"] 
+            "payment_types" : ["shipping"],
+            "pva_id" : null,
+            "ioss_id" : null,
+            "voec_id" : null
         },
         {
             "tpb_group_id" : 74,
             "label" : "TPB Group B",
             "status" : "pending_approval",
-            "payment_types" : ["shipping", "duties_and_taxes"]
+            "payment_types" : ["shipping", "duties_and_taxes"],
+            "pva_id" : "GB370241527",
+            "ioss_id" : "IM3720000960",
+            "voec_id" : "VOEC2036495"
         }
     ]
 }
@@ -111,6 +117,27 @@ An array of objects. Each object will contain "<a href="#tpb_group_properties">T
         <td>
             <pre><code>{ "payment_types" : ["shipping"] }</code></pre>
             The payment types of the group. Allowed payment types: <code>shipping</code>, <code>duties_and_taxes</code> 
+        </td>
+    </tr>
+    <tr>
+        <th>pva_id</th>
+        <td>
+            <pre><code>{ "pva_id" : "GB370241527" }</code></pre>
+            The PVA ID of the group. 
+        </td>
+    </tr>
+    <tr>
+        <th>ioss_id</th>
+        <td>
+            <pre><code>{ "ioss_id" : "IM3720000960" }</code></pre>
+            The IOSS ID of the group. 
+        </td>
+    </tr>
+    <tr>
+        <th>voec_id</th>
+        <td>
+            <pre><code>{ "voec_id" : "VOEC2036495" }</code></pre>
+            The VOEC ID of the group. 
         </td>
     </tr>
 </tbody>
