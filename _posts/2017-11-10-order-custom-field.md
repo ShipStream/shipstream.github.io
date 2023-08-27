@@ -21,6 +21,15 @@ order: 95
 
 ----
 
+#### Additional Resources
+
+<ul>
+    <li><a href="/doc/order.html#order_custom_field" title="Order Custom Fields">Order Custom Fields</a> — when submitting/receiving Order info.</li>
+    <li><a href="https://help.shipstream.io/article/0hv4sjkn3d-custom-fields-for-orders" title="UI Order Custom Fields article">UI Order Custom Fields article</a></li>
+</ul>
+
+----
+
 <h1 id="order_custom_field_list">
 order_custom_field.list
 </h1>
@@ -29,7 +38,7 @@ order_custom_field.list
 order_custom_field.list ()
 ~~~
 
-Retrieve list of order custom fields.
+Retrieve list of order custom fields available for the calling merchant.
 
 #### Return Value
 
@@ -132,7 +141,7 @@ An array of objects. Each object will contain [Order Custom Field](#field_proper
         <th>input_type</th>
         <td>
             <pre><code>{ "input_type" : "multiselect" }</code></pre>
-            The "input_type" property. Allowed values: "text", "multiline-text", "number", "currency", "select", "multiselect", "boolean", "date", "client-user", "email", "url".
+            The "input_type" property. Allowed values: "text", "multiline-text", "number", "currency", "select", "multiselect", "boolean", "date", "client-user", "admin-user", "email", "url".
         </td>
     </tr>
     <tr>
