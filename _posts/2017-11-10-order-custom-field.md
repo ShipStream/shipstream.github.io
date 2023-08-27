@@ -24,7 +24,7 @@ order: 95
 #### Additional Resources
 
 <ul>
-    <li><a href="/doc/order.html#order_custom_field" title="Order Custom Fields">Order Custom Fields</a> — when submitting/receiving Order info.</li>
+    <li><a href="/ref/order.html#order_custom_field" title="Order Custom Fields">Order Custom Fields</a> — when submitting/receiving Order info.</li>
     <li><a href="https://help.shipstream.io/article/0hv4sjkn3d-custom-fields-for-orders" title="UI Order Custom Fields article">UI Order Custom Fields article</a></li>
 </ul>
 
