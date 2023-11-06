@@ -70,7 +70,8 @@ An object with <a href="#delivery_label_properties">Delivery Label Properties</a
             [
                 "packages",
                 "destination_address",
-                "origin_address"
+                "origin_address",
+                "files"
             ]
         ]
     ]
@@ -158,6 +159,17 @@ An object with <a href="#delivery_label_properties">Delivery Label Properties</a
                 "classification": null,
                 "is_valid": null,
                 "country": "US"
+            },
+            "files": {
+                "label": {
+                    "type": "pdf",
+                    "data": "base64encoded..."
+                },
+                "auxiliary_label": {
+                    "type": "pdf",
+                    "data": "bas64encoded..."
+                },
+                "customs_documents": null
             }
         }
     ]
@@ -233,7 +245,8 @@ An array of objects. Each object will contain "<a href="#delivery_label_properti
             [
                 "packages",
                 "destination_address",
-                "origin_address"
+                "origin_address",
+                "files"
             ]
         ]
     ]
@@ -321,6 +334,17 @@ An array of objects. Each object will contain "<a href="#delivery_label_properti
                     "classification": null,
                     "is_valid": null,
                     "country": "US"
+                },
+                "files": {
+                    "label": {
+                        "type": "pdf",
+                        "data": "base64encoded..."
+                    },
+                    "auxiliary_label": {
+                        "type": "pdf",
+                        "data": "bas64encoded..."
+                    },
+                    "customs_documents": null
                 }
             }
         ],
@@ -511,6 +535,17 @@ An object with <a href="#delivery_label_properties">Delivery Label Properties</a
                 "classification": null,
                 "is_valid": null,
                 "country": "US"
+            },
+            "files": {
+                "label": {
+                    "type": "pdf",
+                    "data": "base64encoded..."
+                },
+                "auxiliary_label": {
+                    "type": "pdf",
+                    "data": "bas64encoded..."
+                },
+                "customs_documents": null
             }
         }
     ]
@@ -662,6 +697,13 @@ Void delivery label.
         <th>origin_address</th>
         <td>
             Origination Address. See <a href="#delivery_label_address_properties">Delivery Label Address Properties</a>.
+        </td>
+    </tr>
+    <tr>
+        <th>files</th>
+        <td>
+            An object with a label type as the key and the file data as the value. Allowed types: "label", "auxiliary_label", "customs_documents". 
+            See <a href="#delivery_label_file_properties">Delivery Label File Properties</a>.
         </td>
     </tr>
 </tbody>
@@ -916,6 +958,29 @@ Void delivery label.
     <td>
         <pre><code>{ "tpb_group_id" : 11 }</code></pre>
         The ID number of a <a href="/ref/third-party-billing-group.html">Third Party Billing Account Group</a>. If unset or <code>null</code>, and a default group is configured, the default group will be used.  Set to <code>0</code> to disable third party billing.
+    </td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="delivery_label_file_properties">
+    Delivery Label File Properties
+</h3>
+
+<table class="table-striped">
+<tbody>
+<tr>
+    <th>type</th>
+    <td>
+        <pre><code>{ "type" : "pdf" }</code></pre>
+        The "Type" property. Allowed: "pdf".
+    </td>
+</tr>
+<tr>
+    <th>data</th>
+    <td>
+        <pre><code>{ "data" : "bas64encoded..." }</code></pre>
+        Base64 encoded file content.
     </td>
 </tr>
 </tbody>
