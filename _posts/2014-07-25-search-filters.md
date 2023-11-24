@@ -38,7 +38,7 @@ are not completed the filters could be specified like so:
   </td>	
 </tr>
 <tr>
-  <th>neq</th>
+  <th>starts</th>
   <td>
   	<pre><code>{ "sku" : { "starts" : "abc-" } }</code></pre>
   	The value starts with the given value (prefix match).
