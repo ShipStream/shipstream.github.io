@@ -47,7 +47,7 @@ If both `unique_id` and `order_ref` are supplied then the `unique_id` will be us
 <strong>Note:</strong>  
 Order Custom Fields can be used in Order Imports. To add an Order Custom Field, add the field's code to the header with a prefix symbol. 
 There are two types of prefixes:
-- Prefix with `#` when the values are identified by id. See <a href="https://help.shipstream.io/article/0hv4sjkn3d-custom-fields-for-orders#enumerated_order_custom_field_options" title="Enumerated Order Custom Field Options">Enumerated Order Custom Field Options</a> article section for how to find the code.
+- Prefix with `#` when the values are identified by "id". See <a href="https://help.shipstream.io/article/0hv4sjkn3d-custom-fields-for-orders#enumerated_order_custom_field_options" title="Enumerated Order Custom Field Options">Enumerated Order Custom Field Options</a> article section for how to find the "id".
 - Prefix with `@` when the values uploaded are numeric values or text.
 
 Here's an example of how to use these prefixes:
