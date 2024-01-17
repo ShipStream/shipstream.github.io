@@ -55,7 +55,7 @@ not be available on your account or in your area but all services are listed for
 | usps_US-FCI | USPS First-Class International |
 | usps_US-LM | USPS Library Mail |
 | usps_US-MM | USPS Media Mail |
-| usps_US-PS | USPS Parcel Select Ground |
+| usps_US-PS | USPS Ground Advantage |
 | usps_US-PM | USPS Priority Mail |
 | usps_US-PMI | USPS Priority Mail International |
 | usps_US-XM | USPS Priority Mail Express |
