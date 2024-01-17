@@ -45,12 +45,13 @@ When the `order_ref` is supplied with no `unique_id` then the `order_ref` will b
 If both `unique_id` and `order_ref` are supplied then the `unique_id` will be used to group rows.
 
 <strong>Note:</strong>  
-Order Custom Fields can be used in Order Imports. To add an Order Custom Field, add the field's code to the header with a prefix symbol. 
-There are two types of prefixes:
+Order Custom Fields can be used in Order Imports. To add an Order Custom Field, add the field's code to the header with a prefix symbol.  
+
+There are two types of prefixes: 
 - Prefix with `#` when the values are identified by "id". See <a href="https://help.shipstream.io/article/0hv4sjkn3d-custom-fields-for-orders#enumerated_order_custom_field_options" title="Enumerated Order Custom Field Options">Enumerated Order Custom Field Options</a> article section for how to find the "id".
 - Prefix with `@` when the values uploaded are numeric values or text.
 
-Here's an example of how to use these prefixes:
+Here's an example of how to use these prefixes: 
 ```
 "@claim_reasons","@cost_of_goods","@allow_mailer","#claim_reason"
 "Damaged in shipping|Did not fit",41.32,true,13
