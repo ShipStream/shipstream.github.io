@@ -124,10 +124,6 @@ Get all enumerations for warehouse "2":
                         "label": "Packing"
                     },
                     {
-                        "key": "packing_exception",
-                        "label": "Packing Exception"
-                    },
-                    {
                         "key": "picked",
                         "label": "Picked"
                     },
