@@ -11,14 +11,13 @@
   "country" : "US",
   "telephone" : "212.245.2100",
   "items" : {
-    "product1" : 2,
-    "product2" : 3,
-    "product3" : 1
+    "test-sku-1" : 2,
+    "test-sku-2" : 3,
+    "test-sku-3" : 1
   },
   "custom_fields" : {
-    "claim_reasons" : ["Damaged in shipping", "Did not fit"],
-    "cost_of_goods" : "41.32",
-    "allow_mailer" : "true",
-    "claim_reason" : {"id" : 13}
+    "claim_reason" : {"#id": 1},
+    "cost_of_goods" : {"@scalar_or_label": "41.32"},
+    "allow_mailer" : {"@scalar_or_label": "true"}
   }
 }
