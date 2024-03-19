@@ -1,5 +1,5 @@
 id,delivery_type,sender_name,carrier_name,expected_delivery,merchant_ref,sender_ref,sku,qty
-1,asn,Bill Gates,FedEx,"2014-07-31",12345,333,product1,50
-1,,,,,,,product2,100
-2,asn,Bill Gates,FedEx,"2014-08-12",12346,339,product3,40
-2,,,,,,,product4,200
+1,asn,Bill Gates,FedEx,"2014-07-31",12345,333,test-sku-1,50
+1,,,,,,,test-sku-2,100
+2,asn,Bill Gates,FedEx,"2014-08-12",12346,339,test-sku-3,40
+2,,,,,,,test-sku-4,200

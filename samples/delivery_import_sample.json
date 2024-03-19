@@ -3,15 +3,15 @@
   "sender_name" : "Bill Gates",
   "carrier_name" : "FedEx",
   "expected_delivery" : "2014-07-31",
-  "merchant_ref" : "12345",
+  "merchant_ref" : "23456",
   "sender_ref" : "333",
   "items" : [
     {
-      "sku" : "product1",
+      "sku" : "test-sku-1",
       "qty" : 5
     },
     {
-      "sku" : "product2",
+      "sku" : "test-sku-2",
       "qty" : 1
     }
   ]
