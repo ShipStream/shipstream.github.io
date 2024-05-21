@@ -35,17 +35,29 @@ not be available on your account or in your area but all services are listed for
 
 #### UPS Services
 
-| Code | Description                 |
-|:-----|:----------------------------|
-| ups_01 | UPS Next Day Air            |
-| ups_02 | UPS 2nd Day Air             |
-| ups_03 | UPS Ground                  |
-| ups_11 | UPS Standard                |
-| ups_12 | UPS 3 Day Select            |
-| ups_14 | UPS Next Day Air Early |
-| ups_59 | UPS 2nd Day Air A.M.        |
-| ups_65 | UPS Worldwide Saver         |
-| ups_SP | UPS SurePost                |
+| Code | Description                                 |
+|:-----|:--------------------------------------------|
+| ups_01 | UPS Next Day Air                            |
+| ups_14 | UPS Next Day Air Early                      |
+| ups_13 | UPS Next Day Air Saver                      |
+| ups_02 | UPS 2nd Day Air                             |
+| ups_59 | UPS 2nd Day Air A.M.                        |
+| ups_12 | UPS 3 Day Select                            |
+| ups_03 | UPS Ground                                  |
+| ups_11 | UPS Standard                                |
+| ups_08 | UPS Worldwide Expedited                     |
+| ups_07 | UPS Worldwide Express                       |
+| ups_54 | UPS Worldwide Express Plus                  |
+| ups_65 | UPS Worldwide Saver                         |
+| ups_72 | UPS Worldwide Economy DDP                   |
+| ups_17 | UPS Worldwide Economy DDU                   |
+| ups_SP | UPS SurePost                                |
+| ups_M2 | UPS First Class Mail Innovations            |
+| ups_M3 | UPS Priority Mail Innovations               |
+| ups_M4 | UPS Parcel Select Mail Innovations          |
+| ups_M5 | UPS Priority Mail Innovations International |
+| ups_M6 | UPS Economy Mail Innovations International  |
+| ups_70 | UPS Access Point™ Economy                   |
 
 #### USPS Methods
 
