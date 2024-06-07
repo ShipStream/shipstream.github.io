@@ -47,7 +47,7 @@ An array of [Stock Movements](#stock_movement_properties) or an empty array.
 
 #### Example Request
 
-Get all enumerations:
+Get all stock movements:
 
 ```json
 {
