@@ -18,14 +18,20 @@ order: 260
 ---
 
 ShipStream supports importing <a href="/ref/order.html#ordercreate">orders</a>,
-<a href="/ref/product.html#product_create">products</a> and <a href="/ref/delivery.html#delivery_create">deliveries</a>
+<a href="/ref/product.html#product_create">products</a>, <a href="/ref/delivery.html#delivery_create">deliveries</a>
+and <a href="/ref/bom.html">BOMs</a>
 either via the Merchant Panel or the <a href="/ref/import.html">Import</a> API.
-Standard CSV and JSON filters are provided which format the data to use the same values as
-the respective API '*.create' methods so please see the documentation for those methods for
-details about supported field names and values.
 
-If you would like to create a custom import format please contact us for help and see the
-<a href="#custom_filter">Create custom import format</a> section for more information.
+The file formats supported are:
+
+- CSV (delimiters are auto-detected)
+- Excel (table format the same as Standard CSV)
+- JSON Lines (single-line or multi-line JSON objects delimited by newlines)
+
+The file data may be compressed with GZip or BZip2 compression.
+
+The import formats all conform to the respective API '*.create' methods so please see the documentation
+for those methods for details about supported field names and values.
 
 ---
 <h2 id="order_standard_csv">
@@ -37,6 +43,8 @@ order data, SKU and quantity for one order item. If the order contains multiple 
 can be specified using additional rows and the order data can be either repeated (it will
 be ignored) or omitted as long as the 'order_ref' column is not omitted since it is used
 to group the order items together.
+
+<strong>See [Order Properties](/ref/order.html#order_properties) for the supported field names and values.</strong>
 
 <strong>Note:</strong>  
 To group multi-product orders together for CSV imports either the `unique_id` or the `order_ref` must be supplied unless there is only one order per file.  
@@ -104,13 +112,13 @@ Importing orders in JSON format should follow the '<a href="/ref/order.html#orde
 }
 ```
 
-<strong><span style="color:red">Important!</span></strong> JSON for each order must be a single line. Multi-line JSON is not allowed.
-
 <h2 id="product_standard_csv">
 Product - Standard CSV
 </h2>
 
 The header row should contain all field names and each following row contains product data. Each row must specify a SKU at minimum.
+
+<strong>See [Product Properties](/ref/product.html#product_properties) for the supported field names and values.</strong>
 
 If a field supports multiple values such as 'hts_country_code' or 'special_other' then multiple values can be assigned by specifying values separated by the 'pipe' character: |
 
@@ -161,8 +169,6 @@ Importing products in JSON format should follow the '<a href="/ref/product.html#
 }  
 ```
 
-<strong><span style="color:red">Important!</span></strong> JSON for each product must be a single line. Multi-line JSON is not allowed.
-
 <h2 id="delivery_standard_csv">
 Delivery - Standard CSV
 </h2>
@@ -175,8 +181,8 @@ When using Delivery Imports the `merchant_ref` values must be unique to the `del
 
 Since an import can create multiple items at once the System uses the Merchant Ref to check for duplicates.  
  Example: Upload a file with 10 different ASNs.  After importing, the System states that of the ten, five had errors and five successfully imported.  Correct those five, whether that is in the file or by adding a SKU to the System, etc.  With the corrections made, import the same file but have the System handle duplicates by Dropping them.  This way the same file can be reused without accidentally entering a duplicate ASN.  Allowing the focus to be on fixing the ASNs that failed instead of needing to also make a new file to import the ASNs.
- 
-There are other possible column headers that can be found at <a href="/ref/delivery.html#delivery_properties">Delivery Properties</a>.  Some of these can be used, some are only for values returned by the API.
+
+<strong>See [Delivery Properties](/ref/delivery.html#delivery_properties) for the supported field names and values.</strong>
 
 #### Example Input File [\[Download Sample\]](/samples/delivery_import_sample.csv)
 
@@ -217,8 +223,6 @@ Importing deliveries in JSON format should follow the '<a href="/ref/delivery.ht
 }
 ```
 
-<strong><span style="color:red">Important!</span></strong> JSON for each delivery must be a single line. Multi-line JSON is not allowed.
-
 <h2 id="bom_standard_csv">
 Bill of Materials - Standard CSV
 </h2>
@@ -226,6 +230,8 @@ Bill of Materials - Standard CSV
 The "id" field is only used to group multiple lines into a single bill of materials. If importing a single bill of materials it can be blank, but if importing multiple bills of materials it should be unique for each separate bill of materials in the CSV file.
 
 The header row should contain all field names and each following row contains bill of materials data. Each row must specify a SKU at minimum.
+
+<strong>See [BOM Properties](/ref/bom.html#bom_properties) for the supported field names and values.</strong>
 
 #### Example Input File [\[Download Sample\]](/samples/bom_import_sample.csv)
 
@@ -263,137 +269,4 @@ Importing bill of materials in JSON format should follow the '<a href="/ref/bom.
     }
   ]
 }  
-```
-
-<strong><span style="color:red">Important!</span></strong> JSON for each bill of materials must be a single line. Multi-line JSON is not allowed.
-
----
-
-<h2 id="custom_filter">
-Create custom import format
-</h2>
-
-Logstash uses input {...}, filter {...} and output {...} configuration. "input" and "output" configuration
-is already defined and only the "filter" part of the configuration can be specified by the user.
-
-The "input" uses stdin and adds "line_number" to each line of the import files. The "output" is different
-for each import type. A custom import format should get data after "input", make required modifications and
-prepare the data for the "output" format corresponding to the import type.
-
-#### input
-
-```json
-input {
-  stdin { type => "stdin-type" }
-}
-
-filter {
-  ruby {
-    code => '
-      if !$LINE
-        $LINE = 0;
-      end;
-      $LINE += 1; event["line_number"] = $LINE;'
-  }
-}
-```
-
-#### filter for JSON format
-
-```json
-filter {
-  json {
-    source => "message"
-  }
-  ruby {
-    code => 'event["raw_data"] = event["message"]'
-  }
-}
-```
-
-#### output for Order
-
-```json
-filter {
-  ruby {
-    code => 'event["parsed_data"] = {
-      "api_method" => "order.create",
-      "args" => {
-        "items" => event["items"],
-        "address" => {
-          "firstname"=> event["firstname"],
-          "lastname" => event["lastname"],
-          "company"  => event["company"],
-          "street1"  => event["street1"],
-          "city"     => event["city"],
-          "region"   => event["region"],
-          "postcode" => event["postcode"],
-          "country"  => event["country"],
-          "telephone"    => event["telephone"]
-        },
-        "info" => {
-          "unique_id"           => event["unique_id"],
-          "order_ref"           => event["order_ref"],
-          "shipping_method"     => event["shipping_method"],
-          "custom_greeting"     => event["custom_greeting"],
-          "note"                => event["note"],
-          "signature_required"  => event["signature_required"],
-          "overbox"             => event["overbox"],
-          "requested_ship_date" => event["requested_ship_date"],
-          "delayed_ship_date"   => event["delayed_ship_date"]
-        }
-      }
-    }'
-  }
-}
-```
-
-#### output for Product
-
-```json
-filter {
-  ruby {
-    code => 'event["parsed_data"] = {
-      "api_method" => "product.create",
-      "args" => {
-        "sku" => event["sku"],
-        "product_data" => {
-          "name"           => event["name"],
-          "barcode"        => event["barcode"],
-          "goods_type"     => event["goods_type"],
-          "weight"         => event["weight"],
-          "weight_unit"    => event["weight_unit"],
-          "length"         => event["length"],
-          "width"          => event["width"],
-          "height"         => event["height"],
-          "dimension_unit" => event["dimension_unit"],
-        }
-      }
-    }'
-  }
-}
-```
-
-#### output for Delivery
-
-```json
-filter {
-  ruby {
-    code => 'event["parsed_data"] = {
-      "api_method" => "delivery.create",
-      "args" => {
-        "delivery_type" => event["delivery_type"],
-        "data" => {
-          "sender_name"       => event["sender_name"],
-          "carrier_name"      => event["carrier_name"],
-          "expected_delivery" => event["expected_delivery"],
-          "delivery_type"     => event["delivery_type"],
-          "merchant_ref"      => event["merchant_ref"],
-          "sender_ref"        => event["sender_ref"]
-        },
-        "items" => event["items"]
-      }
-    }'
-  }
-}
 ```
