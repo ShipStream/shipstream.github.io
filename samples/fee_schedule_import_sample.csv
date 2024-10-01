@@ -1,0 +1,6 @@
+Fee Type,Formula,Zones Start,Zones End,Weight Min,Weight Max,Weight Unit,Amount
+Dimension Surcharge,Flat,1,5,,,,3.85
+Dimension Surcharge,Flat,6,,,,,3
+Weight Surcharge,Percent of Base Rate,,,,140,lb,10%
+Weight Surcharge,Percent of Base Rate,,,141,200,lb,25%
+Delivery Area Surcharge (DAS),Flat,,,,,,4.2
