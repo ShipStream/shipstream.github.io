@@ -378,7 +378,7 @@ Create a new delivery label.
 <tbody>
     <tr>
         <td>0</td>
-        <td>Delivery internal id</td>
+        <td>Delivery # (i.e., the ASN # or RMA # depending on the type)</td>
     </tr>
     <tr>
         <td>1</td>
