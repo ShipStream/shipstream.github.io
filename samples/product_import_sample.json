@@ -12,7 +12,6 @@
   "hts_country_code" : "BH:1000|ZW:1001",
   "requires_packaging" : 1,
   "can_contain_other_items" : 0,
-  "confirmation_per_item" : 0,
   "allowed_container_styles" : [ "rigid_box", "bubble_mailer" ],
   "valid_containers" : [ "Box_5x5x5", "nylon_straps" ],
   "disallowed_containers" : [ "Box_4x5x3", "Box_8x4x4" ],
