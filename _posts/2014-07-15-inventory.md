@@ -130,27 +130,29 @@ Get all inventory for warehouse "2":
     "result" : [
         {
             "sku" : "BlueWidget-1",
-            "qty_expected"    : 0,
-            "qty_processed"   : 0,
-            "qty_putaway"     : 50,
-            "qty_available"   : 22,
-            "qty_allocated"   : 5,
-            "qty_reserved"    : 16,
-            "qty_picked"      : 1,
-            "qty_backordered" : 0,
-            "qty_advertised"  : 22
+            "qty_expected"    : "0.0000",
+            "qty_processed"   : "0.0000",
+            "qty_putaway"     : "50.0000",
+            "qty_available"   : "22.0000",
+            "qty_allocated"   : "5.0000",
+            "qty_reserved"    : "16.0000",
+            "qty_picked"      : "1.0000",
+            "qty_backordered" : "0.0000",
+            "qty_advertised"  : "22.0000",
+            "qty_on_hand"     : "94.0000"
         },
         {
             "sku" : "BlueWidget-5",
-            "qty_expected"    : 40,
-            "qty_processed"   : 0,
-            "qty_putaway"     : 0,
-            "qty_available"   : 0,
-            "qty_allocated"   : 0,
-            "qty_reserved"    : 2,
-            "qty_picked"      : 0,
-            "qty_backordered" : 5,
-            "qty_advertised"  : 0
+            "qty_expected"    : "40.0000",
+            "qty_processed"   : "0.0000",
+            "qty_putaway"     : "0.0000",
+            "qty_available"   : "0.0000",
+            "qty_allocated"   : "0.0000",
+            "qty_reserved"    : "2.0000",
+            "qty_picked"      : "0.0000",
+            "qty_backordered" : "5.0000",
+            "qty_advertised"  : "0.0000",
+	    "qty_on_hand"     : "2.0000"
         }
     ]
 }
@@ -319,7 +321,8 @@ An array of detailed items inventory, or an empty array if there were no matchin
             "qty_reserved": "0.0000",
             "qty_picked": "2.0000",
             "qty_backordered": "0.0000",
-            "qty_advertised": "8",
+            "qty_advertised": "8.0000",
+	    "qty_on_hand": "10.0000",
             "detailed": [
                 {
                     "warehouse_id": "1",
@@ -330,7 +333,8 @@ An array of detailed items inventory, or an empty array if there were no matchin
                     "qty_allocated": "0.0000",
                     "qty_reserved": "0.0000",
                     "qty_picked": "2.0000",
-                    "qty_advertised": "8"
+                    "qty_advertised": "8.0000",
+                    "qty_on_hand": "10.0000"
                 },
                 {
                     "warehouse_id": "2",
@@ -341,7 +345,8 @@ An array of detailed items inventory, or an empty array if there were no matchin
                     "qty_allocated": "0.0000",
                     "qty_reserved": "0.0000",
                     "qty_picked": "0.0000",
-                    "qty_advertised": "0"
+                    "qty_advertised": "0.0000",
+		    "qty_on_hand": "0.0000"
                 },
                 {
                     "warehouse_id": "3",
@@ -352,7 +357,8 @@ An array of detailed items inventory, or an empty array if there were no matchin
                     "qty_allocated": "0.0000",
                     "qty_reserved": "0.0000",
                     "qty_picked": "0.0000",
-                    "qty_advertised": "0"
+                    "qty_advertised": "0.0000",
+		    "qty_on_hand": "0.0000"
                 }
             ]
         },
@@ -366,7 +372,8 @@ An array of detailed items inventory, or an empty array if there were no matchin
             "qty_reserved": "0.0000",
             "qty_picked": "1.0000",
             "qty_backordered": "0.0000",
-            "qty_advertised": "98",
+            "qty_advertised": "98.0000",
+	    "qty_on_hand": "99.0000",
             "detailed": [
                 {
                     "warehouse_id": "1",
@@ -377,7 +384,8 @@ An array of detailed items inventory, or an empty array if there were no matchin
                     "qty_allocated": "0.0000",
                     "qty_reserved": "0.0000",
                     "qty_picked": "1.0000",
-                    "qty_advertised": "98"
+                    "qty_advertised": "98.0000",
+		    "qty_on_hand": "99.0000"
                 },
                 {
                     "warehouse_id": "2",
@@ -388,7 +396,8 @@ An array of detailed items inventory, or an empty array if there were no matchin
                     "qty_allocated": "0.0000",
                     "qty_reserved": "0.0000",
                     "qty_picked": "0.0000",
-                    "qty_advertised": "0"
+                    "qty_advertised": "0.0000",
+         	    "qty_on_hand": "0.0000"
                 },
                 {
                     "warehouse_id": "3",
@@ -399,7 +408,8 @@ An array of detailed items inventory, or an empty array if there were no matchin
                     "qty_allocated": "0.0000",
                     "qty_reserved": "0.0000",
                     "qty_picked": "0.0000",
-                    "qty_advertised": "0"
+                    "qty_advertised": "0.0000",
+                    "qty_on_hand": "0.0000"
                 }
             ]
         }
@@ -475,6 +485,11 @@ An array of detailed items inventory, or an empty array if there were no matchin
 	The "Advertised" quantity. This is the "Available" quantity plus
 	the virtual BOM quantity.  The virtual BOM quantity is controlled by
 	a product's "Virtual Inventory" attribute.
+</td></tr>
+<tr><th>qty_on_hand</th>
+<td>
+	<pre><code>{ "qty_on_hand" : 6 }</code></pre>
+	The Quantity On Hand is <code>qty_processed</code> + <code>qty_putaway</code> + <code>qty_available</code> + <code>qty_allocated</code> + <code>qty_reserved</code> + <code>qty_picked</code>
 </td></tr>
 </table>
 
